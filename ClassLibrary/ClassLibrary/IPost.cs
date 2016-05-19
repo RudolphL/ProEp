@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Post:IPost
+    interface IPost
     {
-        public void DoPost()
-        {
-            throw new NotImplementedException();
-        }
+        string description;
+        string title;
+        Book 
+        void DoPost();
     }
 }
