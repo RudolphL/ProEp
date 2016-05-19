@@ -8,5 +8,14 @@ namespace ClassLibrary
 {
     public class Post
     {
+        private String description;
+        private String title;
+        // Book object
+        private String place;
+
+        public Post()
+        {
+
+        }
     }
 }
