@@ -18,36 +18,32 @@ namespace ProEpService
         public string Name
         {
             get { return this.name; }
-            set { this.name = value;}
+            set { this.name = value; }
         }
 
         public string Author
         {
-            get { return this.author;}
-            set { this.author = value;}
+            get { return this.author; }
+            set { this.author = value; }
         }
 
         public float Price
         {
             get { return this.price; }
-            set { this.price = value;}
-
-
+            set { this.price = value; }
         }
 
         public string IISBN
         {
-            get { return this.ISBN;}
-            set { this.ISBN = value;}
+            get { return this.ISBN; }
+            set { this.ISBN = value; }
         }
 
         public string Publisher
         {
-            get { return this.publisher;}
-            set { this.publisher = value;}
-
+            get { return this.publisher; }
+            set { this.publisher = value; }
         }
-
 
         public Books(string name, string author, float price, string ISBN, string publisher)
         {
@@ -56,9 +52,6 @@ namespace ProEpService
             this.price = price;
             this.ISBN = ISBN;
             this.publisher = publisher;
-
-
-
         }
 
 

@@ -7,8 +7,7 @@ using System.ServiceModel;
 namespace ProEpService
 {
     public class ISearch
-    
-       {
+    {
         [ServiceContract]
         public interface ISearch
         {
@@ -23,7 +22,6 @@ namespace ProEpService
 
             [OperationContract]
             bool SsearchByISBN(string ISBN);
-
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ProEpService
 {
     public class IMessage
     {
-    [ServiceContract(Namespace = "myservice", CallbackContract = typeof(IupdateMessageCallback))]
+        [ServiceContract(Namespace = "myservice", CallbackContract = typeof(IupdateMessageCallback))]
         [OperationContract]
         void UpateMessageUnsubcribe();
 
