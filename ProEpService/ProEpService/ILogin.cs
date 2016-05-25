@@ -11,12 +11,9 @@ namespace ProEpService
     public interface ILogin
     {
         [OperationContract]
-        int Login(string playername, string password);
+        int Login(string username, string password);
 
         [OperationContract]
         String RecoverPassword(string email);
-
-        [OperationContract]
-        int CreateAccount(string firstname, string lastname, string playername, string email, string password);
     }
 }
