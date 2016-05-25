@@ -42,7 +42,8 @@ namespace ProEpService
                 {
                     String to = email;
                     String subject = "User information";
-                    String body = "Dear " + information[0] + " " + information[1] + ",\n\nYour information:\n\nUsername: " + information[2] + "\nPassword: " + information[3] + "\n\nKind regards,\nProEp Group D Team";
+                    String body = "Dear " + information[1] + ",\n\nYour information:\n\nUsername: " 
+                        + information[0] + "\nPassword: " + information[2] + "\n\nKind regards,\nProEp Group D Team";
                     String smtp = "smtp.gmail.com";
                     String username = "proepgroupd@gmail.com";
                     String password = "proep123";
