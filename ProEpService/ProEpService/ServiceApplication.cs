@@ -11,7 +11,7 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin
+    public class ServiceApplication : ILogin, IPost
     {
         /// <summary>
         /// User tries to login. Returns a boolean, true if the user can log in, and false if the user is not allowed to log in.
@@ -87,6 +87,18 @@ namespace ProEpService
              */            
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CreateUser(username, password, name, city, email);
+        }
+
+        /// <summary>
+        /// Add a post to the database.
+        /// </summary>
+        /// <param name="post"></param>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public bool AddPost(Post post, string username)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.CreatePost(post, username);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace ProEpService
         bool SearchByAuthor(string name);
 
         [OperationContract]
-        bool SearchByPrice(int price);
+        bool SearchByPrice(double price);
 
         [OperationContract]
-        bool SearchByfitle(string firstname);
+        bool SearchByTitle(string title);
 
         [OperationContract]
         bool SsearchByISBN(string isbn);

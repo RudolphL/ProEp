@@ -255,5 +255,162 @@ namespace ProEpService
                 connection.Close();
             }
         }
+
+        /// <summary>
+        /// Get the max id in the post table.
+        /// </summary>
+        /// <returns></returns>
+        public int GetPostMaxId()
+        {
+            try
+            {
+                String sql = ("SELECT MAX(post_id) from post;");
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                int count = 0;
+
+                while (reader.Read())
+                {
+                    count = Convert.ToInt32(reader[0]);
+                }
+
+                return count;
+            }
+            catch (MySqlException)
+            {
+                return -1;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Get the max id in the book table.
+        /// </summary>
+        /// <returns></returns>
+        public int GetBookMaxId()
+        {
+            try
+            {
+                String sql = ("SELECT MAX(book_id) from book;");
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                int count = 0;
+
+                while (reader.Read())
+                {
+                    count = Convert.ToInt32(reader[0]);
+                }
+
+                return count;
+            }
+            catch (MySqlException)
+            {
+                return -1;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool CreatePost(Post post, string username)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            MySqlTransaction mytransaction;
+
+            // Start transaction
+            mytransaction = connection.BeginTransaction();
+            command.Connection = connection;
+            command.Transaction = mytransaction;
+
+            try
+            {
+                // Set the postId
+                int postId = this.GetPostMaxId() + 1;
+                command.CommandText = "INSERT INTO post (post_id, title, description, place, client_username) VALUES ('"
+                    + postId + "','" + post.Title + "','" + post.Description + "','" + post.Place + "','" + username + "');";
+                command.ExecuteNonQuery();
+                mytransaction.Commit();
+
+                connection.Close();
+                this.CreateBook(post.Book, postId);
+
+                return true;
+            }
+            catch
+            {
+                try
+                {
+                    mytransaction.Rollback();
+                    return false;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool CreateBook(Book book, int postId)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            MySqlTransaction mytransaction;
+
+            // Start transaction
+            mytransaction = connection.BeginTransaction();
+            command.Connection = connection;
+            command.Transaction = mytransaction;
+
+            try
+            {
+                // Set the bookId
+                int bookId = this.GetBookMaxId() + 1;
+                command.CommandText = "INSERT INTO book (book_id, name, isbn, author, price, publisher, image, bookcondition, post_post_id) VALUES ('"
+                    + bookId + "','" + book.Name + "','" + book.Isbn + "','" + book.Author + "'," + book.Price + ",'" + book.Publisher + "'," + null + ",'" + book.BookCondition + "','" + postId + "');";
+                command.ExecuteNonQuery();
+                mytransaction.Commit();
+
+                return true;
+            }
+            catch
+            {
+                try
+                {
+                    mytransaction.Rollback();
+                    return false;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

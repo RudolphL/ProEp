@@ -16,7 +16,6 @@ namespace ProEpService
         void UpdateMessageSubscribe();
     }
 
-
     public interface IUpdateMessageCallback
     {
         [OperationContract(IsOneWay = true)]
