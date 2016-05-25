@@ -11,6 +11,9 @@ namespace ProEpService
     public interface ILogin
     {
         [OperationContract]
+        int Register(string username, string password, string name, string city, string email);
+
+        [OperationContract]
         bool Login(string username, string password);
 
         [OperationContract]
