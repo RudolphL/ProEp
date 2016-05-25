@@ -8,22 +8,44 @@ namespace ProEpService
 {
     public class Post
     {
-        //fields
-        private String description;
-        private String title;
+        private string description;
+        private string title;
+        private Books bookinfo;
+        private string place;
 
-        //properties
-        public String Description
+        public string Description
         {
             get { return this.description; }
-            private set { this.description = value; }
+            set { this.description = value; }
         }
 
+       public string Title
+       {
+           get { return this.Title; }
+           set { this.title = value; }
+       }
 
-        //constructor
+       public Books BookInfo
+       {
+           get { return this.bookinfo; }
+           set { this.bookinfo = value; }
+       }
 
-        //methods
+       public string Place
+       {
+           get { return this.place; }
+           set { this.Place = value; }
+       }
 
 
+       public Post(string description, string title, Books bookinfo, string place)
+       {
+
+           this.description = description;
+           this.title = title;
+           this.bookinfo = bookinfo;
+           this.place = place;
+
+       }
     }
 }

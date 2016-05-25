@@ -1,6 +1,6 @@
 ﻿namespace ProEpBookApp
 {
-    partial class Register
+    partial class RegisterForm
     {
         /// <summary>
         /// Required designer variable.
