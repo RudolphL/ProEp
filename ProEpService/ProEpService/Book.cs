@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace ProEpService
 {
-   public class Books
+    [DataContract]
+   public class Book
     {
-
-        public string name;
-        public string author;
-        public float price;
-        public string ISBN;
-        public string publisher;
+        private string name;
+        private string isbn;
+        private string author;
+        private double price;
+        private string publisher;
+        private string bookCondition;
 
         public string Name
         {
@@ -27,16 +30,16 @@ namespace ProEpService
             set { this.author = value; }
         }
 
-        public float Price
+        public double Price
         {
             get { return this.price; }
             set { this.price = value; }
         }
 
-        public string IISBN
+        public string Isbn
         {
-            get { return this.ISBN; }
-            set { this.ISBN = value; }
+            get { return this.isbn; }
+            set { this.isbn = value; }
         }
 
         public string Publisher
@@ -45,16 +48,21 @@ namespace ProEpService
             set { this.publisher = value; }
         }
 
-        public Books(string name, string author, float price, string ISBN, string publisher)
+        public string BookCondition
+        {
+            get { return this.bookCondition; }
+            set { this.bookCondition = value; }
+        }
+
+        public Book(string name, string author, double price, string isbn, string publisher, string bookCondition)
         {
             this.name = name;
             this.price = price;
             this.price = price;
-            this.ISBN = ISBN;
+            this.isbn = isbn;
             this.publisher = publisher;
+            this.bookCondition = bookCondition;
         }
-
-
     }
 }
 

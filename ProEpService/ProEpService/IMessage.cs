@@ -56,7 +56,6 @@ namespace ProEpService
 
     }
 
-
     public interface IUpdateMessageCallback
     {
         [OperationContract(IsOneWay = true)]

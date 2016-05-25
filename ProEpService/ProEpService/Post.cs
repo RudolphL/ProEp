@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace ProEpService
 {
+    [DataContract]
     public class Post
     {
         private string description;
         private string title;
-        private Books bookinfo;
+        private Book book;
         private string place;
 
         public string Description
@@ -25,10 +28,10 @@ namespace ProEpService
            set { this.title = value; }
        }
 
-       public Books BookInfo
+       public Book Book
        {
-           get { return this.bookinfo; }
-           set { this.bookinfo = value; }
+           get { return this.book; }
+           set { this.book = value; }
        }
 
        public string Place
@@ -37,15 +40,12 @@ namespace ProEpService
            set { this.Place = value; }
        }
 
-
-       public Post(string description, string title, Books bookinfo, string place)
+       public Post(string description, string title, Book book, string place)
        {
-
            this.description = description;
            this.title = title;
-           this.bookinfo = bookinfo;
+           this.book = book;
            this.place = place;
-
        }
     }
 }
