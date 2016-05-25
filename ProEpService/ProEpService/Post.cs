@@ -9,7 +9,7 @@ namespace ProEpService
     public class Post
     {
         private string description;
-        private string tittle;
+        private string title;
         private Books bookinfo;
         private string place;
 
@@ -19,10 +19,10 @@ namespace ProEpService
             set { this.description = value; }
         }
 
-       public string Tittle
+       public string Title
        {
-           get { return this.Tittle; }
-           set { this.tittle = value; }
+           get { return this.Title; }
+           set { this.title = value; }
        }
 
        public Books BookInfo
@@ -38,11 +38,11 @@ namespace ProEpService
        }
 
 
-       public Post(string description, string tittle, Books bookinfo, string place)
+       public Post(string description, string title, Books bookinfo, string place)
        {
 
            this.description = description;
-           this.tittle = tittle;
+           this.title = title;
            this.bookinfo = bookinfo;
            this.place = place;
 
