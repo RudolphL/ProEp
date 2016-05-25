@@ -10,20 +10,19 @@ using System.Windows.Forms;
 
 namespace ProEpBookApp
 {
-    public partial class LoggedinForm : Form
+    public partial class MainForm : Form
     {
+        MainForm mainForm = null;
         LoginForm lForm = null;
-        LoggedinForm mainForm = null;
         RegisterForm rForm = null;
-        MessageForm mForm = null;
+        
 
-        public LoggedinForm()
+        public MainForm()
         {
-            InitializeComponent();
-            mainForm = new LoggedinForm();
+      //      InitializeComponent();
+            mainForm = new MainForm();
             lForm = new LoginForm();
             rForm = new RegisterForm();
-            mForm = new MessageForm();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -38,10 +37,5 @@ namespace ProEpBookApp
             mainForm.Hide();
         }
 
-        private void btnMyMessage_Click(object sender, EventArgs e)
-        {
-            mForm.Show();
-            mainForm.Hide();
-        }
     }
 }

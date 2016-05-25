@@ -43,5 +43,10 @@ namespace ProEpBookApp
             mForm.Show();
             mainForm.Hide();
         }
+
+        private void btnCreateAPost_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

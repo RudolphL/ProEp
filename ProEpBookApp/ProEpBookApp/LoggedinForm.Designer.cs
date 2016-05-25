@@ -118,6 +118,7 @@
             this.btnCreateAPost.TabIndex = 5;
             this.btnCreateAPost.Text = "Create A Post";
             this.btnCreateAPost.UseVisualStyleBackColor = true;
+            this.btnCreateAPost.Click += new System.EventHandler(this.btnCreateAPost_Click);
             // 
             // groupBox1
             // 
@@ -321,7 +322,7 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // Form1
+            // LoggedinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,7 +332,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "LoggedinForm";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
