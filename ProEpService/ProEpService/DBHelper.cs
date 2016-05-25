@@ -65,6 +65,47 @@ namespace ProEpService
         }
 
         /// <summary>
+        /// Check if there already exist a user with this username.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public bool CheckExist(string username)
+        {
+            try
+            {
+                bool returnValue = false;
+
+                String sql = "SELECT COUNT(*) FROM client WHERE username = '" + username + "';";
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                int count = 0;
+
+                while (reader.Read())
+                {
+                    count = Convert.ToInt32(reader[0]);
+                }
+
+                // If user is found, make the returnValue true.
+                if (count == 1)
+                {
+                    returnValue = true;
+                }
+                return returnValue;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /// <summary>
         /// Create a user with the parameters.
         /// Checks first if there is already a user with the username or email that exist.
         /// Function algorithm:
@@ -81,7 +122,7 @@ namespace ProEpService
         /// <returns></returns>
         public int CreateUser(string username, string password, string name, string city, string email)
         {
-            bool exist = this.CheckLogin(username, password);
+            bool exist = this.CheckExist(username);
             bool emailExist = this.CheckEmail(email);
 
             // User already exist
@@ -153,7 +194,7 @@ namespace ProEpService
                     count = Convert.ToInt32(reader[0]);
                 }
 
-                if (true)
+                if (count == 1)
                 {
                     returnValue = true;
                 }

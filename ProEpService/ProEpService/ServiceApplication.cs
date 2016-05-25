@@ -11,7 +11,7 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IRegister
+    public class ServiceApplication : ILogin
     {
         /// <summary>
         /// User tries to login. Returns a boolean, true if the user can log in, and false if the user is not allowed to log in.
