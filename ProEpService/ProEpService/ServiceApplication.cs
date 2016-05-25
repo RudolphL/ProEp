@@ -20,11 +20,6 @@ namespace ProEpService
             throw new NotImplementedException();
         }
 
-        public int CreateAccount(string firstname, string lastname, string playername, string email, string password)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Register(string username, string password, string name, string city)
         {
             throw new NotImplementedException();
