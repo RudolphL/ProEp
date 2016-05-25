@@ -16,7 +16,7 @@ namespace ProEpBookApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoggedinForm());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -49,18 +49,20 @@
             // 
             this.groupBox3.Controls.Add(this.btnRegister);
             this.groupBox3.Controls.Add(this.btnLogin);
-            this.groupBox3.Location = new System.Drawing.Point(765, 21);
+            this.groupBox3.Location = new System.Drawing.Point(1020, 26);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(252, 141);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(336, 174);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "User";
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(47, 79);
+            this.btnRegister.Location = new System.Drawing.Point(8, 117);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(163, 40);
+            this.btnRegister.Size = new System.Drawing.Size(320, 49);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(47, 32);
+            this.btnLogin.Location = new System.Drawing.Point(8, 59);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(163, 41);
+            this.btnLogin.Size = new System.Drawing.Size(320, 50);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -81,18 +84,21 @@
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.txbSearch);
             this.groupBox4.Controls.Add(this.listView1);
-            this.groupBox4.Location = new System.Drawing.Point(12, 21);
+            this.groupBox4.Location = new System.Drawing.Point(16, 26);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(729, 444);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(972, 546);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Posts";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(331, 37);
+            this.btnSearch.Location = new System.Drawing.Point(441, 46);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(69, 30);
+            this.btnSearch.Size = new System.Drawing.Size(92, 37);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -100,9 +106,10 @@
             // txbSearch
             // 
             this.txbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearch.Location = new System.Drawing.Point(34, 38);
+            this.txbSearch.Location = new System.Drawing.Point(45, 47);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(291, 29);
+            this.txbSearch.Size = new System.Drawing.Size(387, 34);
             this.txbSearch.TabIndex = 1;
             // 
             // listView1
@@ -114,9 +121,10 @@
             this.Place});
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(34, 81);
+            this.listView1.Location = new System.Drawing.Point(45, 100);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(668, 326);
+            this.listView1.Size = new System.Drawing.Size(889, 400);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -147,15 +155,18 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // LoggedinForm
+            // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 570);
+            this.ClientSize = new System.Drawing.Size(1467, 702);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Name = "LoggedinForm";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Welcome";
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

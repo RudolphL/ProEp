@@ -12,29 +12,19 @@ namespace ProEpBookApp
 {
     public partial class MainForm : Form
     {
-        MainForm mainForm = null;
-        LoginForm lForm = null;
-        RegisterForm rForm = null;
-        
-
         public MainForm()
         {
-      //      InitializeComponent();
-            mainForm = new MainForm();
-            lForm = new LoginForm();
-            rForm = new RegisterForm();
+            InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            lForm.Show();
-            mainForm.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            rForm.Show();
-            mainForm.Hide();
         }
 
     }
