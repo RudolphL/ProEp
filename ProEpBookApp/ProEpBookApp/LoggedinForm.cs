@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace ProEpBookApp
 {
-    public partial class Form1 : Form
+    public partial class LoggedinForm : Form
     {
         LoginForm lForm = null;
-        Form1 mainForm = null;
-        Register rForm = null;
+        LoggedinForm mainForm = null;
+        RegisterForm rForm = null;
         MessageForm mForm = null;
 
-        public Form1()
+        public LoggedinForm()
         {
             InitializeComponent();
-            mainForm = new Form1();
+            mainForm = new LoggedinForm();
             lForm = new LoginForm();
-            rForm = new Register();
+            rForm = new RegisterForm();
             mForm = new MessageForm();
         }
 
