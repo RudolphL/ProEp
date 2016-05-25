@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 namespace ProEpService
 {
-    public class ISearch
+    [ServiceContract]
+    public interface ISearch
     {
-        [ServiceContract]
-        public interface ISearch
-        {
-            [OperationContract]
-            bool SearchByAuthor(string name);
+        [OperationContract]
+        bool SearchByAuthor(string name);
 
-            [OperationContract]
-            bool SearchByPrice(int price);
+        [OperationContract]
+        bool SearchByPrice(int price);
 
-            [OperationContract]
-            bool SearchByfitle(string firstname);
+        [OperationContract]
+        bool SearchByfitle(string firstname);
 
-            [OperationContract]
-            bool SsearchByISBN(string ISBN);
-        }
+        [OperationContract]
+        bool SsearchByISBN(string isbn);
     }
 }

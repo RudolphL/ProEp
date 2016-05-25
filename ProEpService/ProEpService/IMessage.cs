@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 namespace ProEpService
 {
-    public class IMessage
-    {
-        [ServiceContract(Namespace = "myservice", CallbackContract = typeof(IupdateMessageCallback))]
+    [ServiceContract(Namespace = "ProEpService", CallbackContract = typeof(IUpdateMessageCallback))]
+    public interface IMessage
+    {        
         [OperationContract]
-        void UpateMessageUnsubcribe();
+        void UpdateMessageUnsubcribe();
 
         [OperationContract]
-        void UpateMessageSubscribe();
+        void UpdateMessageSubscribe();
     }
 
 
-    public interface IupdateMessageCallback
+    public interface IUpdateMessageCallback
     {
         [OperationContract(IsOneWay = true)]
-        void updateMessage(List<string> messages);
+        void UpdateMessage(List<string> messages);
     }
 }
 
