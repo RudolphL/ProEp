@@ -15,7 +15,7 @@ namespace ProEpService
         private String client_sender;          //the name of the one who send the text
         private String client_receiver;        //the name of the one who receive the text
 
-        //properties
+        #region properties
         public int Message_id
         {
             get { return this.message_id; }
@@ -39,7 +39,7 @@ namespace ProEpService
             get { return this.client_receiver; }
             private set { this.client_receiver = value; }
         }
-
+        #endregion
         //constructor
 
         public Message(int message_id, String messagetext, String client_sender, String client_receiver)

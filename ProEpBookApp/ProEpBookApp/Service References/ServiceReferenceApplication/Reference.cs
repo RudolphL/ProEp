@@ -9,11 +9,48 @@
 //------------------------------------------------------------------------------
 
 namespace ProEpBookApp.ServiceReferenceApplication {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Post", Namespace="http://schemas.datacontract.org/2004/07/ProEpService")]
+    [System.SerializableAttribute()]
+    public partial class Post : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceApplication.ILogin")]
     public interface ILogin {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogin/Register", ReplyAction="http://tempuri.org/ILogin/RegisterResponse")]
+        int Register(string username, string password, string name, string city, string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogin/Register", ReplyAction="http://tempuri.org/ILogin/RegisterResponse")]
+        System.Threading.Tasks.Task<int> RegisterAsync(string username, string password, string name, string city, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILogin/Login", ReplyAction="http://tempuri.org/ILogin/LoginResponse")]
         bool Login(string username, string password);
@@ -55,6 +92,14 @@ namespace ProEpBookApp.ServiceReferenceApplication {
                 base(binding, remoteAddress) {
         }
         
+        public int Register(string username, string password, string name, string city, string email) {
+            return base.Channel.Register(username, password, name, city, email);
+        }
+        
+        public System.Threading.Tasks.Task<int> RegisterAsync(string username, string password, string name, string city, string email) {
+            return base.Channel.RegisterAsync(username, password, name, city, email);
+        }
+        
         public bool Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
@@ -69,6 +114,53 @@ namespace ProEpBookApp.ServiceReferenceApplication {
         
         public System.Threading.Tasks.Task<bool> RecoverPasswordAsync(string email) {
             return base.Channel.RecoverPasswordAsync(email);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceApplication.IPost")]
+    public interface IPost {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPost/AddPost", ReplyAction="http://tempuri.org/IPost/AddPostResponse")]
+        bool AddPost(ProEpBookApp.ServiceReferenceApplication.Post post, string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPost/AddPost", ReplyAction="http://tempuri.org/IPost/AddPostResponse")]
+        System.Threading.Tasks.Task<bool> AddPostAsync(ProEpBookApp.ServiceReferenceApplication.Post post, string username);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IPostChannel : ProEpBookApp.ServiceReferenceApplication.IPost, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PostClient : System.ServiceModel.ClientBase<ProEpBookApp.ServiceReferenceApplication.IPost>, ProEpBookApp.ServiceReferenceApplication.IPost {
+        
+        public PostClient() {
+        }
+        
+        public PostClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public PostClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public PostClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public PostClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool AddPost(ProEpBookApp.ServiceReferenceApplication.Post post, string username) {
+            return base.Channel.AddPost(post, username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddPostAsync(ProEpBookApp.ServiceReferenceApplication.Post post, string username) {
+            return base.Channel.AddPostAsync(post, username);
         }
     }
 }

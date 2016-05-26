@@ -129,6 +129,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\ServiceReferenceApplication\ProEpService.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReferenceApplication\service.wsdl" />
     <None Include="Service References\ServiceReferenceApplication\service.xsd">
       <SubType>Designer</SubType>

@@ -13,7 +13,11 @@ namespace ProEpService
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceApplication : ILogin, IPost , IMessage
     {
+        #region fields
         private Action update_message = delegate { };
+        #endregion
+
+        #region Login
 
         /// <summary>
         /// User tries to login. Returns a boolean, true if the user can log in, and false if the user is not allowed to log in.
@@ -26,6 +30,9 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CheckLogin(username, password);
         }
+        #endregion
+
+        #region Recover Password
 
         /// <summary>
         /// User tries to recover password. Returns true if successful, and false if not found.
@@ -68,7 +75,9 @@ namespace ProEpService
                 return false;
             }
         }
+        #endregion
 
+        #region Register
         /// <summary>
         /// User tries to register, create a user.
         /// Return type int: different meaning depending on the int value.
@@ -90,6 +99,9 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CreateUser(username, password, name, city, email);
         }
+        #endregion
+
+        #region Post
 
         /// <summary>
         /// Add a post to the database.
@@ -102,6 +114,9 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CreatePost(post, username);
         }
+        #endregion
+
+        #region Message methods
 
         /// <summary>
         /// This method will unsubscribe the client from getting notify by the callback of IUpdateMessage
@@ -159,5 +174,6 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.GetMessages(sender_username, receiver_username);
         }
+#endregion
     }
 }

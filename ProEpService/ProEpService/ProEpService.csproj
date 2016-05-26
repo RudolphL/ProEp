@@ -49,10 +49,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Books.cs" />
+    <Compile Include="Book.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="ILogin.cs" />
     <Compile Include="IMessage.cs" />
+    <Compile Include="IPost.cs" />
     <Compile Include="ISearch.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Post.cs" />
