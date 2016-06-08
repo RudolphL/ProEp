@@ -35,12 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGoBack = new System.Windows.Forms.Button();
+            this.btnRecover = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(98, 153);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(209, 22);
             this.tbUsername.TabIndex = 0;
@@ -48,7 +49,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(98, 185);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(209, 22);
             this.tbPassword.TabIndex = 1;
@@ -56,7 +57,7 @@
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(98, 215);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 46);
             this.btnLogin.TabIndex = 2;
@@ -98,18 +99,29 @@
             // btnGoBack
             // 
             this.btnGoBack.Location = new System.Drawing.Point(231, 215);
-            this.btnGoBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGoBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnGoBack.Name = "btnGoBack";
             this.btnGoBack.Size = new System.Drawing.Size(76, 46);
             this.btnGoBack.TabIndex = 6;
             this.btnGoBack.Text = "Back";
             this.btnGoBack.UseVisualStyleBackColor = true;
             // 
+            // btnRecover
+            // 
+            this.btnRecover.Location = new System.Drawing.Point(221, 296);
+            this.btnRecover.Name = "btnRecover";
+            this.btnRecover.Size = new System.Drawing.Size(137, 45);
+            this.btnRecover.TabIndex = 7;
+            this.btnRecover.Text = "Recover account";
+            this.btnRecover.UseVisualStyleBackColor = true;
+            this.btnRecover.Click += new System.EventHandler(this.btnRecover_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 321);
+            this.ClientSize = new System.Drawing.Size(370, 353);
+            this.Controls.Add(this.btnRecover);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -118,7 +130,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Log in";
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGoBack;
+        private System.Windows.Forms.Button btnRecover;
     }
 }

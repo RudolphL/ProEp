@@ -49,5 +49,11 @@ namespace ProEpBookApp
                 throw;
             }
         }
+
+        private void btnRecover_Click(object sender, EventArgs e)
+        {
+            RecoverForm recoverForm = new RecoverForm();
+            recoverForm.ShowDialog();
+        }
     }
 }
