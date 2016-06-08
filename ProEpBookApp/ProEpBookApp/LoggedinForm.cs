@@ -12,9 +12,11 @@ namespace ProEpBookApp
 {
     public partial class LoggedinForm : Form
     {
-        public LoggedinForm()
+        private string username;
+        public LoggedinForm(string user)
         {
             InitializeComponent();
+            this.username = user;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,6 +29,8 @@ namespace ProEpBookApp
 
         private void btnMyMessage_Click(object sender, EventArgs e)
         {
+            MessageForm messageform = new MessageForm(username);
+            messageform.ShowDialog();
         }
 
         private void btnCreateAPost_Click(object sender, EventArgs e)
