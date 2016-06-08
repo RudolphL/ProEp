@@ -36,7 +36,7 @@ namespace ProEpBookApp
 
                 if (this.loginproxy.Login(username, password))
                 {
-                    LoggedinForm loggedInForm = new LoggedinForm();
+                    LoggedinForm loggedInForm = new LoggedinForm(tbUsername.Text);
                     loggedInForm.ShowDialog();
                 }
                 else

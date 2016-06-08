@@ -16,5 +16,10 @@ namespace ProEpBookApp
         {
             InitializeComponent();
         }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

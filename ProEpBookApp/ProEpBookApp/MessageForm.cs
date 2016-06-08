@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace ProEpBookApp
 {
-    public partial class MessageForm : Form
+    public partial class MessageForm : Form 
     {
+        private string username;
         public MessageForm(string user)
         {
             InitializeComponent();
+            this.username = user;
+
         }
     }
 }

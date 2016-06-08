@@ -140,6 +140,7 @@
             this.btnChangePass.TabIndex = 10;
             this.btnChangePass.Text = "Change";
             this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // panel1
             // 
