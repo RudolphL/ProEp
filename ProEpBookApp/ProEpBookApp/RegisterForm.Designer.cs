@@ -31,16 +31,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbUsername = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
+            this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbCity = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 189);
+            this.label2.Location = new System.Drawing.Point(16, 158);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
@@ -75,34 +75,34 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Name";
             // 
-            // tbUsername
+            // tbPassword
             // 
-            this.tbUsername.Location = new System.Drawing.Point(139, 186);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(216, 22);
-            this.tbUsername.TabIndex = 7;
+            this.tbPassword.Location = new System.Drawing.Point(139, 246);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(216, 22);
+            this.tbPassword.TabIndex = 7;
             // 
-            // tbName
+            // tbCity
             // 
-            this.tbName.Location = new System.Drawing.Point(139, 126);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(216, 22);
-            this.tbName.TabIndex = 6;
+            this.tbCity.Location = new System.Drawing.Point(139, 217);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(216, 22);
+            this.tbCity.TabIndex = 6;
             // 
-            // tbEmail
+            // tbPasswordConfirm
             // 
-            this.tbEmail.Location = new System.Drawing.Point(139, 216);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(216, 22);
-            this.tbEmail.TabIndex = 11;
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(139, 276);
+            this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPasswordConfirm.Name = "tbPasswordConfirm";
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(216, 22);
+            this.tbPasswordConfirm.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 219);
+            this.label4.Location = new System.Drawing.Point(13, 190);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 17);
@@ -112,7 +112,7 @@
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(139, 306);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(216, 54);
             this.btnRegister.TabIndex = 13;
@@ -120,13 +120,13 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // tbPassword
+            // tbEmail
             // 
-            this.tbPassword.Location = new System.Drawing.Point(139, 246);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(216, 22);
-            this.tbPassword.TabIndex = 6;
+            this.tbEmail.Location = new System.Drawing.Point(139, 187);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(216, 22);
+            this.tbEmail.TabIndex = 6;
             // 
             // label5
             // 
@@ -138,13 +138,13 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Password";
             // 
-            // tbPasswordConfirm
+            // tbUsername
             // 
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(139, 276);
-            this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPasswordConfirm.Name = "tbPasswordConfirm";
-            this.tbPasswordConfirm.Size = new System.Drawing.Size(216, 22);
-            this.tbPasswordConfirm.TabIndex = 6;
+            this.tbUsername.Location = new System.Drawing.Point(139, 155);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(216, 22);
+            this.tbUsername.TabIndex = 6;
             // 
             // label6
             // 
@@ -156,18 +156,18 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Confirm Password";
             // 
-            // tbCity
+            // tbName
             // 
-            this.tbCity.Location = new System.Drawing.Point(139, 156);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(216, 22);
-            this.tbCity.TabIndex = 6;
+            this.tbName.Location = new System.Drawing.Point(139, 126);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(216, 22);
+            this.tbName.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 159);
+            this.label7.Location = new System.Drawing.Point(16, 220);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 17);
@@ -181,19 +181,19 @@
             this.ClientSize = new System.Drawing.Size(455, 388);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbUsername);
-            this.Controls.Add(this.tbCity);
-            this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbCity);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterForm";
             this.Text = "Register";
             this.ResumeLayout(false);
@@ -206,16 +206,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbUsername;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbCity;
+        private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbPasswordConfirm;
+        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbCity;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label7;
     }
 }

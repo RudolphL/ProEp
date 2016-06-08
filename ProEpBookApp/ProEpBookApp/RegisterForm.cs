@@ -26,7 +26,7 @@ namespace ProEpBookApp
         {
             string name, city, username, email, password, confirmPassword;
 
-            if (tbName.Text == "" || tbCity.Text == "" || tbUsername.Text == "" || tbEmail.Text == "" || tbPassword.Text == "" || tbPasswordConfirm.Text == "")
+            if (tbCity.Text == "" || tbName.Text == "" || tbPassword.Text == "" || tbPasswordConfirm.Text == "" || tbEmail.Text == "" || tbUsername.Text == "")
             {
                 MessageBox.Show("Please provide all information.");
                 return;
