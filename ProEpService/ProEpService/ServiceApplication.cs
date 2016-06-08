@@ -58,7 +58,7 @@ namespace ProEpService
                     String password = "proep123";
                     MailMessage mail = new MailMessage(username, to, subject, body);
                     SmtpClient client = new SmtpClient(smtp);
-                    client.Port = 587; //465
+                    client.Port = 587; //465 - 587
                     client.Credentials = new NetworkCredential(username, password);
                     client.EnableSsl = true;
                     client.Send(mail);
