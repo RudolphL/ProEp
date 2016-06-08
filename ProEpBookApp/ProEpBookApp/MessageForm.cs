@@ -12,7 +12,7 @@ namespace ProEpBookApp
 {
     public partial class MessageForm : Form
     {
-        public MessageForm()
+        public MessageForm(string user)
         {
             InitializeComponent();
         }
