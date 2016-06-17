@@ -19,5 +19,10 @@ namespace ProEpBookApp
             this.username = user;
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

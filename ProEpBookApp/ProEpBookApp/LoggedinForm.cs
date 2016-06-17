@@ -36,5 +36,10 @@ namespace ProEpBookApp
         private void btnCreateAPost_Click(object sender, EventArgs e)
         {
         }
+
+        private void txbFilterAuthor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
