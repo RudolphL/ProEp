@@ -11,11 +11,27 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IPost , IMessage
+    public class ServiceApplication : ILogin, IMessage, IPortal
     {
         #region fields
+
+        private List<Post> posts;
+        private List<User> users;
+
+        static Action<List<Post>> eventUpdatePosts = delegate { };
         private Action update_message = delegate { };
+
         #endregion
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ServiceApplication()
+        {
+            DBHelper dbHelper = new DBHelper();
+            this.users = new List<User>();
+            this.posts = dbHelper.GetAllPosts();
+        }
 
         #region Login
 
@@ -30,6 +46,7 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CheckLogin(username, password);
         }
+
         #endregion
 
         #region Recover Password
@@ -75,6 +92,7 @@ namespace ProEpService
                 return false;
             }
         }
+
         #endregion
 
         #region Register
@@ -99,6 +117,7 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CreateUser(username, password, name, city, email);
         }
+
         #endregion
 
         #region Post
@@ -117,13 +136,19 @@ namespace ProEpService
         /// <param name="place"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public bool AddPost(string name, string author, double price, string isbn, string publisher, string bookCondition, string description, string title, string place, string username)
+        public void AddPost(string name, string author, double price, string isbn, string publisher, string bookCondition, string description, string title, string place, string username)
         {
             Book book = new Book(name, author, price, isbn, publisher, bookCondition);
             Post post = new Post(description, title, book, place);
             DBHelper dbHelper = new DBHelper();
-            return dbHelper.CreatePost(post, username);
+
+            dbHelper.CreatePost(post, username);
+            this.posts.Add(post);
+
+            // Trigger event for all users.
+            eventUpdatePosts(this.posts);
         }
+
         #endregion
 
         #region Message methods
@@ -184,6 +209,50 @@ namespace ProEpService
             DBHelper dbHelper = new DBHelper();
             return dbHelper.GetMessages(sender_username, receiver_username);
         }
-#endregion
+
+        #endregion
+
+        #region Portal methods
+
+        /// <summary>
+        /// User signs in, and subscribes to the events.
+        /// </summary>
+        /// <param name="username"></param>
+        public void SignIn(string username)
+        {
+            User currentUser = new User(username);
+            currentUser.UserPortalCallback = OperationContext.Current.GetCallbackChannel<IPortalCallback>();
+            this.users.Add(currentUser);
+
+            //Subscribing to events.
+            eventUpdatePosts += currentUser.UserPortalCallback.NewPostAdded;
+        }
+
+        /// <summary>
+        /// User signs out, and unsubscribes to the events.
+        /// </summary>
+        /// <param name="username"></param>
+        public void SignOut(string username)
+        {
+            User currentUser = null;
+
+            foreach (User user in users)
+            {
+                if (user.Username == username)
+                {
+                    currentUser = user;
+                }
+            }
+
+            //Unsubscribing to events.
+            eventUpdatePosts -= currentUser.UserPortalCallback.NewPostAdded;
+        }
+
+        public List<Post> GetPosts()
+        {
+            return this.posts;
+        }
+
+        #endregion
     }
 }

@@ -13,9 +13,11 @@ namespace ProEpBookApp
     public partial class LoginForm : Form
     {
         private ServiceReferenceApplication.LoginClient loginproxy;
+        private bool loggedIn;
 
         public LoginForm()
         {
+            this.loggedIn = false;
             InitializeComponent();
             tbPassword.PasswordChar = '*';
             this.loginproxy = new ServiceReferenceApplication.LoginClient();
@@ -37,7 +39,9 @@ namespace ProEpBookApp
                 if (this.loginproxy.Login(username, password))
                 {
                     LoggedinForm loggedInForm = new LoggedinForm(tbUsername.Text);
-                    loggedInForm.ShowDialog();
+                    loggedInForm.Show();
+                    this.loggedIn = true;
+                    this.Hide();
                 }
                 else
                 {
@@ -56,9 +60,15 @@ namespace ProEpBookApp
             recoverForm.ShowDialog();
         }
 
-        private void tbPassword_TextChanged(object sender, EventArgs e)
+        // This function is to help close the MainForm if the user is logged in.
+        public bool GetLoggedIn()
         {
+            return this.loggedIn;
+        }
 
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

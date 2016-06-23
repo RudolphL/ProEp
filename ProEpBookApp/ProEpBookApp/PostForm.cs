@@ -28,11 +28,11 @@ namespace ProEpBookApp
         private String publisher;
         private String bookCondition;
 
-        private ServiceReferenceApplication.IPost postproxy;
+        private ServiceReferenceApplication.IPortal portalproxy;
 
-        public PostForm(String username)
+        public PostForm(String username, ServiceReferenceApplication.IPortal portalproxy)
         {
-            this.postproxy = new ServiceReferenceApplication.PostClient();
+            this.portalproxy = portalproxy;
             this.username = username;
             InitializeComponent();
         }
@@ -68,7 +68,7 @@ namespace ProEpBookApp
             }
 
             this.title = tbTitle.Text;
-            this.place = tbPrice.Text;
+            this.place = tbPlace.Text;
             this.description = richDescription.Text;
             this.name = tbBName.Text;
             this.isbn = tbBIsbn.Text;
@@ -76,17 +76,9 @@ namespace ProEpBookApp
             this.publisher = tbBPublisher.Text;
             this.bookCondition = comboBCondition.SelectedItem.ToString();
 
-            bool add = this.postproxy.AddPost(this.name, this.author, this.price, this.isbn, this.publisher, this.bookCondition, this.description, this.title, this.place, this.username);
+            this.portalproxy.AddPost(this.name, this.author, this.price, this.isbn, this.publisher, this.bookCondition, this.description, this.title, this.place, this.username);
 
-            if (!add)
-            {
-                MessageBox.Show("Error while adding your post, please try again later.");
-                return;
-            }
-
-            MessageBox.Show("Post created");
-
-            // Close the form, show successful.
+            this.Close();
         }
     }
 }

@@ -20,7 +20,17 @@ namespace ProEpBookApp
         private void btnLogin_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
+            loginForm.VisibleChanged += loginForm_VisibleChanged;
             loginForm.ShowDialog();
+        }
+
+        // This will hide this form if the user is logged in (if the Login Form is hidden)
+        void loginForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (((LoginForm)sender).GetLoggedIn())
+            {
+                this.Hide();
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

@@ -16,28 +16,32 @@ namespace ProEpService
         private Book book;
         private string place;
 
+        [DataMember]
         public string Description
         {
             get { return this.description; }
             set { this.description = value; }
         }
 
+        [DataMember]
        public string Title
        {
-           get { return this.Title; }
+           get { return this.title; }
            set { this.title = value; }
        }
 
+        [DataMember]
        public Book Book
        {
            get { return this.book; }
            set { this.book = value; }
        }
 
+        [DataMember]
        public string Place
        {
            get { return this.place; }
-           set { this.Place = value; }
+           set { this.place = value; }
        }
 
        public Post(string description, string title, Book book, string place)

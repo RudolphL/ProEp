@@ -18,36 +18,42 @@ namespace ProEpService
         private string publisher;
         private string bookCondition;
 
+        [DataMember]
         public string Name
         {
             get { return this.name; }
             set { this.name = value; }
         }
 
+        [DataMember]
         public string Author
         {
             get { return this.author; }
             set { this.author = value; }
         }
 
+        [DataMember]
         public double Price
         {
             get { return this.price; }
             set { this.price = value; }
         }
 
+        [DataMember]
         public string Isbn
         {
             get { return this.isbn; }
             set { this.isbn = value; }
         }
 
+        [DataMember]
         public string Publisher
         {
             get { return this.publisher; }
             set { this.publisher = value; }
         }
 
+        [DataMember]
         public string BookCondition
         {
             get { return this.bookCondition; }
@@ -57,7 +63,7 @@ namespace ProEpService
         public Book(string name, string author, double price, string isbn, string publisher, string bookCondition)
         {
             this.name = name;
-            this.price = price;
+            this.author = author;
             this.price = price;
             this.isbn = isbn;
             this.publisher = publisher;

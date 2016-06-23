@@ -38,20 +38,16 @@
             this.btnCreateAPost = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listviewPosts = new System.Windows.Forms.ListView();
             this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Place = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txbFilterPrice = new System.Windows.Forms.TextBox();
+            this.tbPriceMin = new System.Windows.Forms.TextBox();
             this.txbFilterISBN = new System.Windows.Forms.TextBox();
             this.txbFilterAuthor = new System.Windows.Forms.TextBox();
             this.btnFilterPrice = new System.Windows.Forms.Button();
@@ -59,46 +55,57 @@
             this.btnFilterAuthor = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.btnSignOut = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnClearFilter = new System.Windows.Forms.Button();
+            this.tbPriceMax = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHomePage
             // 
-            this.btnHomePage.Location = new System.Drawing.Point(10, 19);
+            this.btnHomePage.Location = new System.Drawing.Point(13, 25);
+            this.btnHomePage.Margin = new System.Windows.Forms.Padding(4);
             this.btnHomePage.Name = "btnHomePage";
-            this.btnHomePage.Size = new System.Drawing.Size(134, 44);
+            this.btnHomePage.Size = new System.Drawing.Size(179, 54);
             this.btnHomePage.TabIndex = 0;
             this.btnHomePage.Text = "Home Page";
             this.btnHomePage.UseVisualStyleBackColor = true;
             // 
             // btnMyProfile
             // 
-            this.btnMyProfile.Location = new System.Drawing.Point(150, 20);
+            this.btnMyProfile.Location = new System.Drawing.Point(200, 25);
+            this.btnMyProfile.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyProfile.Name = "btnMyProfile";
-            this.btnMyProfile.Size = new System.Drawing.Size(134, 44);
+            this.btnMyProfile.Size = new System.Drawing.Size(179, 54);
             this.btnMyProfile.TabIndex = 1;
             this.btnMyProfile.Text = "My Profile";
             this.btnMyProfile.UseVisualStyleBackColor = true;
             // 
             // btnMyPost
             // 
-            this.btnMyPost.Location = new System.Drawing.Point(290, 20);
+            this.btnMyPost.Location = new System.Drawing.Point(387, 25);
+            this.btnMyPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyPost.Name = "btnMyPost";
-            this.btnMyPost.Size = new System.Drawing.Size(134, 44);
+            this.btnMyPost.Size = new System.Drawing.Size(179, 54);
             this.btnMyPost.TabIndex = 2;
             this.btnMyPost.Text = "My Books";
             this.btnMyPost.UseVisualStyleBackColor = true;
             // 
             // btnMyMessage
             // 
-            this.btnMyMessage.Location = new System.Drawing.Point(430, 20);
+            this.btnMyMessage.Location = new System.Drawing.Point(573, 25);
+            this.btnMyMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyMessage.Name = "btnMyMessage";
-            this.btnMyMessage.Size = new System.Drawing.Size(134, 44);
+            this.btnMyMessage.Size = new System.Drawing.Size(179, 54);
             this.btnMyMessage.TabIndex = 3;
             this.btnMyMessage.Text = "My Message";
             this.btnMyMessage.UseVisualStyleBackColor = true;
@@ -106,18 +113,20 @@
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(570, 20);
+            this.btnAbout.Location = new System.Drawing.Point(760, 25);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(134, 44);
+            this.btnAbout.Size = new System.Drawing.Size(179, 54);
             this.btnAbout.TabIndex = 4;
             this.btnAbout.Text = "About";
             this.btnAbout.UseVisualStyleBackColor = true;
             // 
             // btnCreateAPost
             // 
-            this.btnCreateAPost.Location = new System.Drawing.Point(21, 37);
+            this.btnCreateAPost.Location = new System.Drawing.Point(28, 46);
+            this.btnCreateAPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateAPost.Name = "btnCreateAPost";
-            this.btnCreateAPost.Size = new System.Drawing.Size(210, 70);
+            this.btnCreateAPost.Size = new System.Drawing.Size(280, 86);
             this.btnCreateAPost.TabIndex = 5;
             this.btnCreateAPost.Text = "Create A Post";
             this.btnCreateAPost.UseVisualStyleBackColor = true;
@@ -131,9 +140,11 @@
             this.groupBox1.Controls.Add(this.btnMyPost);
             this.groupBox1.Controls.Add(this.btnMyProfile);
             this.groupBox1.Controls.Add(this.btnHomePage);
-            this.groupBox1.Location = new System.Drawing.Point(16, 11);
+            this.groupBox1.Location = new System.Drawing.Point(21, 14);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(732, 79);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(976, 97);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Navigation";
@@ -142,102 +153,69 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.btnCreateAPost);
-            this.groupBox2.Location = new System.Drawing.Point(765, 111);
+            this.groupBox2.Location = new System.Drawing.Point(1050, 137);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 138);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(336, 170);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Post";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.btnRegister);
-            this.groupBox3.Controls.Add(this.btnLogin);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(765, 21);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(252, 69);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "User";
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(173, 13);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(73, 41);
-            this.btnRegister.TabIndex = 2;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(99, 13);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(73, 41);
-            this.btnLogin.TabIndex = 1;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "User Name";
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Beige;
+            this.groupBox4.Controls.Add(this.btnClearFilter);
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.txbSearch);
-            this.groupBox4.Controls.Add(this.listView1);
-            this.groupBox4.Location = new System.Drawing.Point(18, 111);
+            this.groupBox4.Controls.Add(this.listviewPosts);
+            this.groupBox4.Location = new System.Drawing.Point(24, 137);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(729, 444);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(972, 546);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Posts";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(331, 37);
+            this.btnSearch.Location = new System.Drawing.Point(441, 46);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(69, 30);
+            this.btnSearch.Size = new System.Drawing.Size(92, 37);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txbSearch
             // 
             this.txbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearch.Location = new System.Drawing.Point(34, 38);
+            this.txbSearch.Location = new System.Drawing.Point(45, 47);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(291, 29);
+            this.txbSearch.Size = new System.Drawing.Size(387, 34);
             this.txbSearch.TabIndex = 1;
             // 
-            // listView1
+            // listviewPosts
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listviewPosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listviewPosts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Author,
             this.Description,
             this.Price,
             this.Place});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(34, 81);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(668, 326);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.listviewPosts.GridLines = true;
+            this.listviewPosts.Location = new System.Drawing.Point(45, 100);
+            this.listviewPosts.Margin = new System.Windows.Forms.Padding(4);
+            this.listviewPosts.Name = "listviewPosts";
+            this.listviewPosts.Size = new System.Drawing.Size(889, 400);
+            this.listviewPosts.TabIndex = 0;
+            this.listviewPosts.UseCompatibleStateImageBehavior = false;
+            this.listviewPosts.View = System.Windows.Forms.View.Details;
             // 
             // Author
             // 
@@ -262,71 +240,84 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox5.Controls.Add(this.txbFilterPrice);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.tbPriceMax);
+            this.groupBox5.Controls.Add(this.tbPriceMin);
             this.groupBox5.Controls.Add(this.txbFilterISBN);
             this.groupBox5.Controls.Add(this.txbFilterAuthor);
             this.groupBox5.Controls.Add(this.btnFilterPrice);
             this.groupBox5.Controls.Add(this.btnFilterISBN);
             this.groupBox5.Controls.Add(this.btnFilterAuthor);
             this.groupBox5.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(765, 255);
+            this.groupBox5.Location = new System.Drawing.Point(1050, 314);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(252, 263);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Size = new System.Drawing.Size(336, 369);
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filter";
             // 
-            // txbFilterPrice
+            // tbPriceMin
             // 
-            this.txbFilterPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFilterPrice.Location = new System.Drawing.Point(14, 173);
-            this.txbFilterPrice.Name = "txbFilterPrice";
-            this.txbFilterPrice.Size = new System.Drawing.Size(225, 29);
-            this.txbFilterPrice.TabIndex = 6;
+            this.tbPriceMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPriceMin.Location = new System.Drawing.Point(19, 275);
+            this.tbPriceMin.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPriceMin.Name = "tbPriceMin";
+            this.tbPriceMin.Size = new System.Drawing.Size(140, 34);
+            this.tbPriceMin.TabIndex = 6;
             // 
             // txbFilterISBN
             // 
             this.txbFilterISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFilterISBN.Location = new System.Drawing.Point(14, 94);
+            this.txbFilterISBN.Location = new System.Drawing.Point(19, 137);
+            this.txbFilterISBN.Margin = new System.Windows.Forms.Padding(4);
             this.txbFilterISBN.Name = "txbFilterISBN";
-            this.txbFilterISBN.Size = new System.Drawing.Size(225, 29);
+            this.txbFilterISBN.Size = new System.Drawing.Size(299, 34);
             this.txbFilterISBN.TabIndex = 5;
             // 
             // txbFilterAuthor
             // 
             this.txbFilterAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFilterAuthor.Location = new System.Drawing.Point(14, 19);
+            this.txbFilterAuthor.Location = new System.Drawing.Point(19, 23);
+            this.txbFilterAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.txbFilterAuthor.Name = "txbFilterAuthor";
-            this.txbFilterAuthor.Size = new System.Drawing.Size(225, 29);
+            this.txbFilterAuthor.Size = new System.Drawing.Size(299, 34);
             this.txbFilterAuthor.TabIndex = 3;
-            this.txbFilterAuthor.TextChanged += new System.EventHandler(this.txbFilterAuthor_TextChanged);
             // 
             // btnFilterPrice
             // 
-            this.btnFilterPrice.Location = new System.Drawing.Point(14, 208);
+            this.btnFilterPrice.Location = new System.Drawing.Point(19, 314);
+            this.btnFilterPrice.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterPrice.Name = "btnFilterPrice";
-            this.btnFilterPrice.Size = new System.Drawing.Size(225, 38);
+            this.btnFilterPrice.Size = new System.Drawing.Size(300, 47);
             this.btnFilterPrice.TabIndex = 4;
             this.btnFilterPrice.Text = "Price Search";
             this.btnFilterPrice.UseVisualStyleBackColor = true;
+            this.btnFilterPrice.Click += new System.EventHandler(this.btnFilterPrice_Click);
             // 
             // btnFilterISBN
             // 
-            this.btnFilterISBN.Location = new System.Drawing.Point(14, 129);
+            this.btnFilterISBN.Location = new System.Drawing.Point(19, 175);
+            this.btnFilterISBN.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterISBN.Name = "btnFilterISBN";
-            this.btnFilterISBN.Size = new System.Drawing.Size(225, 38);
+            this.btnFilterISBN.Size = new System.Drawing.Size(300, 47);
             this.btnFilterISBN.TabIndex = 2;
             this.btnFilterISBN.Text = "ISBN Search";
             this.btnFilterISBN.UseVisualStyleBackColor = true;
+            this.btnFilterISBN.Click += new System.EventHandler(this.btnFilterISBN_Click);
             // 
             // btnFilterAuthor
             // 
-            this.btnFilterAuthor.Location = new System.Drawing.Point(14, 54);
+            this.btnFilterAuthor.Location = new System.Drawing.Point(19, 61);
+            this.btnFilterAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterAuthor.Name = "btnFilterAuthor";
-            this.btnFilterAuthor.Size = new System.Drawing.Size(225, 34);
+            this.btnFilterAuthor.Size = new System.Drawing.Size(300, 42);
             this.btnFilterAuthor.TabIndex = 0;
             this.btnFilterAuthor.Text = "Author Search";
             this.btnFilterAuthor.UseVisualStyleBackColor = true;
+            this.btnFilterAuthor.Click += new System.EventHandler(this.btnFilterAuthor_Click);
             // 
             // imageList1
             // 
@@ -337,33 +328,107 @@
             // visualStyler1
             // 
             this.visualStyler1.HostForm = this;
-            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
-            this.visualStyler1.LoadVisualStyle(null, "Chocolate (Colored1).vssf");
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Location = new System.Drawing.Point(24, 32);
+            this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(105, 24);
+            this.lbUsername.TabIndex = 0;
+            this.lbUsername.Text = "User Name";
+            // 
+            // btnSignOut
+            // 
+            this.btnSignOut.Location = new System.Drawing.Point(231, 16);
+            this.btnSignOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSignOut.Name = "btnSignOut";
+            this.btnSignOut.Size = new System.Drawing.Size(97, 50);
+            this.btnSignOut.TabIndex = 2;
+            this.btnSignOut.Text = "Sign out";
+            this.btnSignOut.UseVisualStyleBackColor = true;
+            this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.btnSignOut);
+            this.groupBox3.Controls.Add(this.lbUsername);
+            this.groupBox3.Location = new System.Drawing.Point(1050, 37);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(336, 85);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "User";
+            // 
+            // btnClearFilter
+            // 
+            this.btnClearFilter.Location = new System.Drawing.Point(817, 46);
+            this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClearFilter.Name = "btnClearFilter";
+            this.btnClearFilter.Size = new System.Drawing.Size(117, 37);
+            this.btnClearFilter.TabIndex = 2;
+            this.btnClearFilter.Text = "Clear Filter";
+            this.btnClearFilter.UseVisualStyleBackColor = true;
+            this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
+            // 
+            // tbPriceMax
+            // 
+            this.tbPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPriceMax.Location = new System.Drawing.Point(179, 275);
+            this.tbPriceMax.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPriceMax.Name = "tbPriceMax";
+            this.tbPriceMax.Size = new System.Drawing.Size(140, 34);
+            this.tbPriceMax.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "min range";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(175, 251);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "max range";
             // 
             // LoggedinForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProEpBookApp.Properties.Resources.Paper_Proselyte_Graphics;
-            this.ClientSize = new System.Drawing.Size(1108, 570);
+            this.ClientSize = new System.Drawing.Size(1477, 702);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoggedinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoggedinForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,9 +443,8 @@
         private System.Windows.Forms.Button btnCreateAPost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listviewPosts;
         private System.Windows.Forms.ColumnHeader Author;
         private System.Windows.Forms.ColumnHeader Description;
         private System.Windows.Forms.ColumnHeader Price;
@@ -390,15 +454,19 @@
         private System.Windows.Forms.Button btnFilterISBN;
         private System.Windows.Forms.Button btnFilterAuthor;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txbSearch;
-        private System.Windows.Forms.TextBox txbFilterPrice;
+        private System.Windows.Forms.TextBox tbPriceMin;
         private System.Windows.Forms.TextBox txbFilterISBN;
         private System.Windows.Forms.TextBox txbFilterAuthor;
         private SkinSoft.VisualStyler.VisualStyler visualStyler1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnSignOut;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Button btnClearFilter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbPriceMax;
     }
 }
 

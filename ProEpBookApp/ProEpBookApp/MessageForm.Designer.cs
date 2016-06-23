@@ -43,30 +43,34 @@
             // listBoxPerson
             // 
             this.listBoxPerson.FormattingEnabled = true;
+            this.listBoxPerson.ItemHeight = 16;
             this.listBoxPerson.Items.AddRange(new object[] {
             "List of person",
             "_______________",
             "John Cena",
             "Iron Man",
             "Harry Potter"});
-            this.listBoxPerson.Location = new System.Drawing.Point(17, 17);
+            this.listBoxPerson.Location = new System.Drawing.Point(23, 21);
+            this.listBoxPerson.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxPerson.Name = "listBoxPerson";
-            this.listBoxPerson.Size = new System.Drawing.Size(191, 277);
+            this.listBoxPerson.Size = new System.Drawing.Size(253, 340);
             this.listBoxPerson.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 295);
+            this.textBox1.Location = new System.Drawing.Point(19, 363);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 20);
+            this.textBox1.Size = new System.Drawing.Size(368, 22);
             this.textBox1.TabIndex = 1;
             // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(297, 290);
+            this.btnSend.Location = new System.Drawing.Point(396, 357);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(95, 29);
+            this.btnSend.Size = new System.Drawing.Size(127, 36);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -74,15 +78,17 @@
             // listBoxChatLog
             // 
             this.listBoxChatLog.FormattingEnabled = true;
+            this.listBoxChatLog.ItemHeight = 16;
             this.listBoxChatLog.Items.AddRange(new object[] {
             "HarryPotter: Hey i want to buy your new book, is it for wizard?",
             "__",
             "You: Its fine but you have to over pay",
             "__",
             "HarryPotter: Ok then cya.."});
-            this.listBoxChatLog.Location = new System.Drawing.Point(12, 15);
+            this.listBoxChatLog.Location = new System.Drawing.Point(16, 18);
+            this.listBoxChatLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxChatLog.Name = "listBoxChatLog";
-            this.listBoxChatLog.Size = new System.Drawing.Size(379, 251);
+            this.listBoxChatLog.Size = new System.Drawing.Size(504, 308);
             this.listBoxChatLog.TabIndex = 3;
             // 
             // panel1
@@ -91,9 +97,10 @@
             this.panel1.Controls.Add(this.listBoxChatLog);
             this.panel1.Controls.Add(this.btnSend);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(280, 45);
+            this.panel1.Location = new System.Drawing.Point(373, 55);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 341);
+            this.panel1.Size = new System.Drawing.Size(540, 420);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -101,30 +108,34 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Beige;
             this.panel2.Controls.Add(this.listBoxPerson);
-            this.panel2.Location = new System.Drawing.Point(37, 43);
+            this.panel2.Location = new System.Drawing.Point(49, 53);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 342);
+            this.panel2.Size = new System.Drawing.Size(303, 421);
             this.panel2.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 9);
+            this.label1.Location = new System.Drawing.Point(45, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 29);
+            this.label1.Size = new System.Drawing.Size(246, 35);
             this.label1.TabIndex = 6;
             this.label1.Text = "MY MESSAGE";
             // 
             // MessageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(759, 406);
+            this.ClientSize = new System.Drawing.Size(1012, 500);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageForm";

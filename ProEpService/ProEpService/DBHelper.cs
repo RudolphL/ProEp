@@ -270,10 +270,14 @@ namespace ProEpService
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
 
-                int count = 0;
+                Int32 count = 0;
 
                 while (reader.Read())
                 {
+                    if (reader[0] == DBNull.Value)
+                    {
+                        break;
+                    }
                     count = Convert.ToInt32(reader[0]);
                 }
 
@@ -307,10 +311,15 @@ namespace ProEpService
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
 
-                int count = 0;
+                Int32 count = 0;
 
                 while (reader.Read())
                 {
+                    if (reader[0] == DBNull.Value)
+                    {
+                        break;
+                    }
+
                     count = Convert.ToInt32(reader[0]);
                 }
 
@@ -332,6 +341,9 @@ namespace ProEpService
        
         public bool CreatePost(Post post, string username)
         {
+            // Set the postId
+            int postId = this.GetPostMaxId() + 1;
+
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
             MySqlTransaction mytransaction;
@@ -343,14 +355,13 @@ namespace ProEpService
 
             try
             {
-                // Set the postId
-                int postId = this.GetPostMaxId() + 1;
                 command.CommandText = "INSERT INTO post (post_id, title, description, place, client_username) VALUES ('"
                     + postId + "','" + post.Title + "','" + post.Description + "','" + post.Place + "','" + username + "');";
                 command.ExecuteNonQuery();
                 mytransaction.Commit();
 
                 connection.Close();
+
                 this.CreateBook(post.Book, postId);
 
                 return true;
@@ -376,6 +387,9 @@ namespace ProEpService
 
         public bool CreateBook(Book book, int postId)
         {
+            // Set the bookId
+            int bookId = this.GetBookMaxId() + 1;
+
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
             MySqlTransaction mytransaction;
@@ -387,10 +401,8 @@ namespace ProEpService
 
             try
             {
-                // Set the bookId
-                int bookId = this.GetBookMaxId() + 1;
-                command.CommandText = "INSERT INTO book (book_id, name, isbn, author, price, publisher, image, bookcondition, post_post_id) VALUES ('"
-                    + bookId + "','" + book.Name + "','" + book.Isbn + "','" + book.Author + "'," + book.Price + ",'" + book.Publisher + "'," + null + ",'" + book.BookCondition + "','" + postId + "');";
+                command.CommandText = "INSERT INTO book (book_id, name, isbn, author, price, publisher, bookcondition, post_post_id) VALUES ('"
+                    + bookId + "','" + book.Name + "','" + book.Isbn + "','" + book.Author + "'," + book.Price + ",'" + book.Publisher + "','" + book.BookCondition + "','" + postId + "');";
                 command.ExecuteNonQuery();
                 mytransaction.Commit();
 
@@ -407,6 +419,42 @@ namespace ProEpService
                 {
                     throw;
                 }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public List<Post> GetAllPosts()
+        {
+            List<Post> dbPosts = new List<Post>();
+
+            try
+            {
+                String sql = ("SELECT * FROM post INNER JOIN book ON post.post_id = book.post_post_id;");
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Book book = new Book(reader["name"].ToString(), reader["author"].ToString(), Convert.ToDouble(reader["price"]), reader["isbn"].ToString(), reader["publisher"].ToString(), reader["bookCondition"].ToString());
+                    Post post = new Post(reader["description"].ToString(), reader["title"].ToString(), book, reader["place"].ToString());
+
+                    dbPosts.Add(post);
+                }
+
+                return dbPosts;
+            }
+            catch (MySqlException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
             }
             finally
             {

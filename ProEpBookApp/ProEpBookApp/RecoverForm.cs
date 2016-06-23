@@ -29,12 +29,14 @@ namespace ProEpBookApp
             }
 
             bool result = this.loginproxy.RecoverPassword(this.tbEmail.Text);
-            if (result)
+            if (!result)
             {
-                MessageBox.Show("Email succesfully sent.\nCheck your email for your credentials.");
+                MessageBox.Show("You don't have an account with this email.\nPlease try again.");
                 return;
             }
-            MessageBox.Show("You don't have an account with this email.\nPlease try again.");
+
+            MessageBox.Show("Email succesfully sent.\nCheck your email for your credentials.");
+            this.Close();
         }
     }
 }

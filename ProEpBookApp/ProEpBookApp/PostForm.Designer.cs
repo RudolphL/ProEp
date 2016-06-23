@@ -258,8 +258,9 @@
             this.Controls.Add(this.tbBIsbn);
             this.Controls.Add(this.tbBName);
             this.Controls.Add(this.tbTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PostForm";
-            this.Text = "PostForm";
+            this.Text = "Create A Post";
             this.ResumeLayout(false);
             this.PerformLayout();
 
