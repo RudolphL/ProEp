@@ -12,14 +12,81 @@ namespace ProEpBookApp
 {
     public partial class PostForm : Form
     {
-        public PostForm()
+        // User
+        private String username;
+
+        // Post data
+        private String title;
+        private String place;
+        private String description;
+
+        // Book data
+        private String name;
+        private String isbn;
+        private String author;
+        private Double price;
+        private String publisher;
+        private String bookCondition;
+
+        private ServiceReferenceApplication.IPost postproxy;
+
+        public PostForm(String username)
         {
+            this.postproxy = new ServiceReferenceApplication.PostClient();
+            this.username = username;
             InitializeComponent();
         }
 
         private void btnCreatePost_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(tbTitle.Text) || String.IsNullOrWhiteSpace(tbPlace.Text) || String.IsNullOrWhiteSpace(richDescription.Text))
+            {
+                MessageBox.Show("Please fill in the missing 'Post' information.");
+                return;
+            }
 
+            if (String.IsNullOrWhiteSpace(tbBName.Text) || String.IsNullOrWhiteSpace(tbBIsbn.Text) || String.IsNullOrWhiteSpace(tbBAuthor.Text) || String.IsNullOrWhiteSpace(tbPrice.Text) || String.IsNullOrWhiteSpace(tbBPublisher.Text) || comboBCondition.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in the missing 'Book' information.");
+                return;
+            }
+
+            // Make sure the price is a number and above 0.
+            try
+            {
+                this.price = Double.Parse(tbPrice.Text);
+
+                if (this.price <= 0)
+                {
+                    throw new FormatException();
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please fill in a valid price.");
+                return;
+            }
+
+            this.title = tbTitle.Text;
+            this.place = tbPrice.Text;
+            this.description = richDescription.Text;
+            this.name = tbBName.Text;
+            this.isbn = tbBIsbn.Text;
+            this.author = tbBAuthor.Text;
+            this.publisher = tbBPublisher.Text;
+            this.bookCondition = comboBCondition.SelectedItem.ToString();
+
+            bool add = this.postproxy.AddPost(this.name, this.author, this.price, this.isbn, this.publisher, this.bookCondition, this.description, this.title, this.place, this.username);
+
+            if (!add)
+            {
+                MessageBox.Show("Error while adding your post, please try again later.");
+                return;
+            }
+
+            MessageBox.Show("Post created");
+
+            // Close the form, show successful.
         }
     }
 }

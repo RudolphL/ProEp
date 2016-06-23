@@ -11,6 +11,6 @@ namespace ProEpService
     public interface IPost
     {
         [OperationContract]
-        bool AddPost(Post post, string username);
+        bool AddPost(string name, string author, double price, string isbn, string publisher, string bookCondition, string description, string title, string place, string username);
     }
 }

@@ -106,11 +106,21 @@ namespace ProEpService
         /// <summary>
         /// Add a post to the database.
         /// </summary>
-        /// <param name="post"></param>
+        /// <param name="name"></param>
+        /// <param name="author"></param>
+        /// <param name="price"></param>
+        /// <param name="isbn"></param>
+        /// <param name="publisher"></param>
+        /// <param name="bookCondition"></param>
+        /// <param name="description"></param>
+        /// <param name="title"></param>
+        /// <param name="place"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public bool AddPost(Post post, string username)
+        public bool AddPost(string name, string author, double price, string isbn, string publisher, string bookCondition, string description, string title, string place, string username)
         {
+            Book book = new Book(name, author, price, isbn, publisher, bookCondition);
+            Post post = new Post(description, title, book, place);
             DBHelper dbHelper = new DBHelper();
             return dbHelper.CreatePost(post, username);
         }

@@ -35,6 +35,8 @@ namespace ProEpBookApp
 
         private void btnCreateAPost_Click(object sender, EventArgs e)
         {
+            PostForm postForm = new PostForm(username);
+            postForm.ShowDialog();
         }
     }
 }

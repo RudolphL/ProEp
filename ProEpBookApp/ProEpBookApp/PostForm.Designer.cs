@@ -157,6 +157,7 @@
             // 
             // comboBCondition
             // 
+            this.comboBCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBCondition.FormattingEnabled = true;
             this.comboBCondition.Items.AddRange(new object[] {
             "New",
