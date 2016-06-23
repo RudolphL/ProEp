@@ -38,5 +38,10 @@ namespace ProEpBookApp
             PostForm postForm = new PostForm(username);
             postForm.ShowDialog();
         }
+
+        private void txbFilterAuthor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

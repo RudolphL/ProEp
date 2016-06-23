@@ -55,5 +55,10 @@ namespace ProEpBookApp
             RecoverForm recoverForm = new RecoverForm();
             recoverForm.ShowDialog();
         }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

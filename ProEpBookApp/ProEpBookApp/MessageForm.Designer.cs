@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageForm));
             this.listBoxPerson = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             // 
             // btnSend
             // 
+            this.btnSend.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.Location = new System.Drawing.Point(297, 290);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(95, 29);
@@ -85,6 +87,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Beige;
             this.panel1.Controls.Add(this.listBoxChatLog);
             this.panel1.Controls.Add(this.btnSend);
             this.panel1.Controls.Add(this.textBox1);
@@ -92,9 +95,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 341);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Beige;
             this.panel2.Controls.Add(this.listBoxPerson);
             this.panel2.Location = new System.Drawing.Point(37, 43);
             this.panel2.Name = "panel2";
@@ -104,10 +109,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(34, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 31);
+            this.label1.Size = new System.Drawing.Size(200, 29);
             this.label1.TabIndex = 6;
             this.label1.Text = "MY MESSAGE";
             // 
@@ -115,11 +120,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(759, 406);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MessageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
