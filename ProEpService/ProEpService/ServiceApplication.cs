@@ -11,14 +11,17 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IMessage, IPortal
+    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer
+
     {
         #region fields
 
         private List<Post> posts;
         private List<User> users;
+        private List<User> viewers;
 
         static Action<List<Post>> eventUpdatePosts = delegate { };
+        static Action<List<Post>> eventViewerUpdatePosts = delegate { };
         private Action update_message = delegate { };
 
         #endregion
@@ -30,6 +33,7 @@ namespace ProEpService
         {
             DBHelper dbHelper = new DBHelper();
             this.users = new List<User>();
+            this.viewers = new List<User>();
             this.posts = dbHelper.GetAllPosts();
         }
 
@@ -147,6 +151,8 @@ namespace ProEpService
 
             // Trigger event for all users.
             eventUpdatePosts(this.posts);
+            // Trigger event for all viewers.
+            eventViewerUpdatePosts(this.posts);
         }
 
         #endregion
@@ -221,11 +227,11 @@ namespace ProEpService
         public void SignIn(string username)
         {
             User currentUser = new User(username);
-            currentUser.UserPortalCallback = OperationContext.Current.GetCallbackChannel<IPortalCallback>();
+            currentUser.UserNewPostAddedCallback = OperationContext.Current.GetCallbackChannel<IPortalCallback>();
             this.users.Add(currentUser);
 
             //Subscribing to events.
-            eventUpdatePosts += currentUser.UserPortalCallback.NewPostAdded;
+            eventUpdatePosts += currentUser.UserNewPostAddedCallback.NewPostAdded;
         }
 
         /// <summary>
@@ -244,13 +250,58 @@ namespace ProEpService
                 }
             }
 
-            //Unsubscribing to events.
-            eventUpdatePosts -= currentUser.UserPortalCallback.NewPostAdded;
+            if (currentUser != null)
+            {
+                users.Remove(currentUser);
+
+                //Unsubscribing to events.
+                eventUpdatePosts -= currentUser.UserNewPostAddedCallback.NewPostAdded;
+            }
         }
 
         public List<Post> GetPosts()
         {
             return this.posts;
+        }
+
+        #endregion
+
+        #region Viewer methods
+
+        public List<Post> ViewPosts()
+        {
+            return this.posts;
+        }
+
+        public void ViewerSignIn(string username)
+        {
+            User currentViewer = new User(username);
+            currentViewer.ViewerNewPostAddedCallback = OperationContext.Current.GetCallbackChannel<IViewerCallback>();
+            this.viewers.Add(currentViewer);
+
+            //Subscribing to events.
+            eventViewerUpdatePosts += currentViewer.ViewerNewPostAddedCallback.UpdatePosts;
+        }
+
+        public void ViewerSignOut(string username)
+        {
+            User currentViewer = null;
+
+            foreach (User viewer in viewers)
+            {
+                if (viewer.Username == username)
+                {
+                    currentViewer = viewer;
+                }
+            }
+
+            if (currentViewer != null)
+            {
+                viewers.Remove(currentViewer);
+
+                //Unsubscribing to events.
+                eventViewerUpdatePosts -= currentViewer.ViewerNewPostAddedCallback.UpdatePosts;
+            }
         }
 
         #endregion

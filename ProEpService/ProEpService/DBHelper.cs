@@ -356,7 +356,7 @@ namespace ProEpService
             try
             {
                 command.CommandText = "INSERT INTO post (post_id, title, description, place, client_username) VALUES ('"
-                    + postId + "','" + post.Title + "','" + post.Description + "','" + post.Place + "','" + username + "');";
+                    + postId + "','" + post.Title + "','" + post.Description.Replace("'", "''") +"','" + post.Place + "','" + username + "');";
                 command.ExecuteNonQuery();
                 mytransaction.Commit();
 

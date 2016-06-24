@@ -20,7 +20,9 @@ namespace ProEpService
         [DataMember]
         public string Username { get { return this.username; } set { this.username = value; } }
 
-        public IPortalCallback UserPortalCallback { get; set; }
+        public IPortalCallback UserNewPostAddedCallback { get; set; }
+
+        public IViewerCallback ViewerNewPostAddedCallback { get; set; }
     }
 }
 

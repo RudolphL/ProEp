@@ -54,6 +54,7 @@
     <Compile Include="ILogin.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="IPortal.cs" />
+    <Compile Include="IViewer.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,7 +62,9 @@
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
