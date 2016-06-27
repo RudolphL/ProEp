@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbNewPassword = new System.Windows.Forms.TextBox();
+            this.tbRepeatPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,27 +67,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "password";
             // 
-            // label3
+            // lbUsername
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(144, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Location = new System.Drawing.Point(144, 15);
+            this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(55, 22);
+            this.lbUsername.TabIndex = 2;
+            this.lbUsername.Text = "<user>";
             // 
-            // label4
+            // lbPassword
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(144, 44);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 22);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.Location = new System.Drawing.Point(144, 44);
+            this.lbPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(95, 22);
+            this.lbPassword.TabIndex = 3;
+            this.lbPassword.Text = "<password>";
             // 
             // label5
             // 
@@ -96,25 +96,25 @@
             this.label5.Location = new System.Drawing.Point(13, 7);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 22);
+            this.label5.Size = new System.Drawing.Size(193, 22);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "Change your password:";
             // 
-            // textBox1
+            // tbNewPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 22);
-            this.textBox1.TabIndex = 5;
+            this.tbNewPassword.Location = new System.Drawing.Point(197, 36);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.Size = new System.Drawing.Size(155, 22);
+            this.tbNewPassword.TabIndex = 5;
             // 
-            // textBox2
+            // tbRepeatPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 68);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 22);
-            this.textBox2.TabIndex = 6;
+            this.tbRepeatPassword.Location = new System.Drawing.Point(197, 68);
+            this.tbRepeatPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRepeatPassword.Name = "tbRepeatPassword";
+            this.tbRepeatPassword.Size = new System.Drawing.Size(155, 22);
+            this.tbRepeatPassword.TabIndex = 6;
             // 
             // label6
             // 
@@ -123,9 +123,9 @@
             this.label6.Location = new System.Drawing.Point(13, 39);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 22);
+            this.label6.Size = new System.Drawing.Size(126, 22);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Old Password";
+            this.label6.Text = "New Password";
             // 
             // label7
             // 
@@ -134,9 +134,9 @@
             this.label7.Location = new System.Drawing.Point(13, 71);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 22);
+            this.label7.Size = new System.Drawing.Size(146, 22);
             this.label7.TabIndex = 8;
-            this.label7.Text = "New Password";
+            this.label7.Text = "Repeat Password";
             // 
             // label8
             // 
@@ -153,7 +153,7 @@
             // 
             this.btnChangePass.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePass.Location = new System.Drawing.Point(361, 36);
-            this.btnChangePass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangePass.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(99, 57);
             this.btnChangePass.TabIndex = 10;
@@ -164,12 +164,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lbPassword);
+            this.panel1.Controls.Add(this.lbUsername);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(25, 82);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(241, 94);
             this.panel1.TabIndex = 11;
@@ -180,11 +180,11 @@
             this.panel2.Controls.Add(this.btnChangePass);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tbRepeatPassword);
+            this.panel2.Controls.Add(this.tbNewPassword);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(25, 183);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(475, 127);
             this.panel2.TabIndex = 12;
@@ -199,7 +199,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileForm";
@@ -216,11 +216,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbNewPassword;
+        private System.Windows.Forms.TextBox tbRepeatPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

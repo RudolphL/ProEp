@@ -17,6 +17,14 @@ namespace ProEpService
         private double price;
         private string publisher;
         private string bookCondition;
+        private int bookId;
+
+        [DataMember]
+        public int BookId
+        {
+            get { return this.bookId; }
+            set { this.bookId = value; }
+        }
 
         [DataMember]
         public string Name

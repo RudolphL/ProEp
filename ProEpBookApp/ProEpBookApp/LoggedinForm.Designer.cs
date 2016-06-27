@@ -39,6 +39,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnClearFilter = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.listviewPosts = new System.Windows.Forms.ListView();
@@ -47,6 +48,9 @@
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Place = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbPriceMax = new System.Windows.Forms.TextBox();
             this.tbPriceMin = new System.Windows.Forms.TextBox();
             this.txbFilterISBN = new System.Windows.Forms.TextBox();
             this.txbFilterAuthor = new System.Windows.Forms.TextBox();
@@ -58,10 +62,6 @@
             this.lbUsername = new System.Windows.Forms.Label();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnClearFilter = new System.Windows.Forms.Button();
-            this.tbPriceMax = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -89,6 +89,7 @@
             this.btnMyProfile.TabIndex = 1;
             this.btnMyProfile.Text = "My Profile";
             this.btnMyProfile.UseVisualStyleBackColor = true;
+            this.btnMyProfile.Click += new System.EventHandler(this.btnMyProfile_Click);
             // 
             // btnMyPost
             // 
@@ -97,8 +98,9 @@
             this.btnMyPost.Name = "btnMyPost";
             this.btnMyPost.Size = new System.Drawing.Size(179, 54);
             this.btnMyPost.TabIndex = 2;
-            this.btnMyPost.Text = "My Books";
+            this.btnMyPost.Text = "My Posts";
             this.btnMyPost.UseVisualStyleBackColor = true;
+            this.btnMyPost.Click += new System.EventHandler(this.btnMyPost_Click);
             // 
             // btnMyMessage
             // 
@@ -178,6 +180,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Posts";
             // 
+            // btnClearFilter
+            // 
+            this.btnClearFilter.Location = new System.Drawing.Point(817, 46);
+            this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClearFilter.Name = "btnClearFilter";
+            this.btnClearFilter.Size = new System.Drawing.Size(117, 37);
+            this.btnClearFilter.TabIndex = 2;
+            this.btnClearFilter.Text = "Clear Filter";
+            this.btnClearFilter.UseVisualStyleBackColor = true;
+            this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
+            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(441, 46);
@@ -208,9 +221,11 @@
             this.Place});
             this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.listviewPosts.FullRowSelect = true;
             this.listviewPosts.GridLines = true;
             this.listviewPosts.Location = new System.Drawing.Point(45, 100);
             this.listviewPosts.Margin = new System.Windows.Forms.Padding(4);
+            this.listviewPosts.MultiSelect = false;
             this.listviewPosts.Name = "listviewPosts";
             this.listviewPosts.Size = new System.Drawing.Size(889, 400);
             this.listviewPosts.TabIndex = 0;
@@ -258,6 +273,33 @@
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filter";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(175, 251);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "max range";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "min range";
+            // 
+            // tbPriceMax
+            // 
+            this.tbPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPriceMax.Location = new System.Drawing.Point(179, 275);
+            this.tbPriceMax.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPriceMax.Name = "tbPriceMax";
+            this.tbPriceMax.Size = new System.Drawing.Size(140, 34);
+            this.tbPriceMax.TabIndex = 6;
             // 
             // tbPriceMin
             // 
@@ -365,44 +407,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "User";
             // 
-            // btnClearFilter
-            // 
-            this.btnClearFilter.Location = new System.Drawing.Point(817, 46);
-            this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClearFilter.Name = "btnClearFilter";
-            this.btnClearFilter.Size = new System.Drawing.Size(117, 37);
-            this.btnClearFilter.TabIndex = 2;
-            this.btnClearFilter.Text = "Clear Filter";
-            this.btnClearFilter.UseVisualStyleBackColor = true;
-            this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
-            // 
-            // tbPriceMax
-            // 
-            this.tbPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPriceMax.Location = new System.Drawing.Point(179, 275);
-            this.tbPriceMax.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPriceMax.Name = "tbPriceMax";
-            this.tbPriceMax.Size = new System.Drawing.Size(140, 34);
-            this.tbPriceMax.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 251);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "min range";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "max range";
-            // 
             // LoggedinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,7 +422,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoggedinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Portal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoggedinForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

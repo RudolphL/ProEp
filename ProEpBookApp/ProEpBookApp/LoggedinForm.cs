@@ -28,7 +28,6 @@ namespace ProEpBookApp
 
             this.username = user;
             this.lbUsername.Text = user;
-            this.Text = "Hello, " + user;
         }
 
         private void btnMyMessage_Click(object sender, EventArgs e)
@@ -193,6 +192,37 @@ namespace ProEpBookApp
 
             // Displaying the list
             this.UpdatePostList(tempList);
+        }
+
+        private void btnMyProfile_Click(object sender, EventArgs e)
+        {
+            ProfileForm profileForm = new ProfileForm(this.username);
+            profileForm.FormClosed += profileForm_FormClosed;
+            profileForm.Show();
+            this.Visible = false;
+        }
+
+        /// <summary>
+        /// Gets called if the ProfileForm closes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void profileForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
+        }
+
+        private void btnMyPost_Click(object sender, EventArgs e)
+        {
+            MyPostsForm myPostsForm = new MyPostsForm(this.username);
+            myPostsForm.FormClosed += myPostsForm_FormClosed;
+            myPostsForm.Show();
+            this.Visible = false;
+        }
+
+        void myPostsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
         }
     }
 }

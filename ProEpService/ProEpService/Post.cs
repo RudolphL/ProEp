@@ -15,6 +15,14 @@ namespace ProEpService
         private string title;
         private Book book;
         private string place;
+        private int postId;
+
+        [DataMember]
+        public int PostId
+        {
+            get { return this.postId; }
+            set { this.postId = value; }
+        }
 
         [DataMember]
         public string Description

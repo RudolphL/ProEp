@@ -11,7 +11,7 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer
+    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer, IProfile, IPersonal
 
     {
         #region fields
@@ -146,13 +146,36 @@ namespace ProEpService
             Post post = new Post(description, title, book, place);
             DBHelper dbHelper = new DBHelper();
 
-            dbHelper.CreatePost(post, username);
+            int postId, bookId;
+
+            dbHelper.CreatePost(post, username, out postId, out bookId);
+
+            // Assigning the postid and bookid
+            post.PostId = postId;
+            post.Book.BookId = bookId;
             this.posts.Add(post);
 
             // Trigger event for all users.
             eventUpdatePosts(this.posts);
             // Trigger event for all viewers.
             eventViewerUpdatePosts(this.posts);
+        }
+
+        /// <summary>
+        /// Get a post in the list by the post id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private Post GetPostById(int id)
+        {
+            foreach (Post post in this.posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+            return null;
         }
 
         #endregion
@@ -302,6 +325,53 @@ namespace ProEpService
                 //Unsubscribing to events.
                 eventViewerUpdatePosts -= currentViewer.ViewerNewPostAddedCallback.UpdatePosts;
             }
+        }
+
+        #endregion
+
+        #region Profile methods
+
+        public string GetPassword(string username)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.GetPassword(username);
+        }
+
+        public bool ChangePassword(string username, string password)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.ChangePassword(username, password);
+        }
+
+        #endregion
+
+        #region Personal User methods
+
+        public List<Post> GetUserPosts(string username)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.GetUserPosts(username);
+        }
+
+        public void DeleteUserPost(string username, int postId)
+        {
+            DBHelper dbHelper = new DBHelper();
+            bool result = dbHelper.DeletePost(username, postId);
+
+            if (result)
+            {
+                // Remove the post object from the list of posts.
+                Post post = this.GetPostById(postId);
+                if (post != null)
+                {
+                    this.posts.Remove(post);
+                }
+            }
+
+            // Trigger event for all users.
+            eventUpdatePosts(this.posts);
+            // Trigger event for all viewers.
+            eventViewerUpdatePosts(this.posts);
         }
 
         #endregion

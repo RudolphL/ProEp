@@ -339,7 +339,7 @@ namespace ProEpService
             }
         }
        
-        public bool CreatePost(Post post, string username)
+        public bool CreatePost(Post post, string username, out int dbPostId, out int dbBookId)
         {
             // Set the postId
             int postId = this.GetPostMaxId() + 1;
@@ -362,8 +362,8 @@ namespace ProEpService
 
                 connection.Close();
 
-                this.CreateBook(post.Book, postId);
-
+                this.CreateBook(post.Book, postId, out dbBookId);
+                dbPostId = postId;
                 return true;
             }
             catch
@@ -371,6 +371,8 @@ namespace ProEpService
                 try
                 {
                     mytransaction.Rollback();
+                    dbPostId = -1;
+                    dbBookId = -1;
                     return false;
                 }
                 catch (Exception)
@@ -385,7 +387,7 @@ namespace ProEpService
         }
      
 
-        public bool CreateBook(Book book, int postId)
+        private bool CreateBook(Book book, int postId, out int dbBookId)
         {
             // Set the bookId
             int bookId = this.GetBookMaxId() + 1;
@@ -406,6 +408,8 @@ namespace ProEpService
                 command.ExecuteNonQuery();
                 mytransaction.Commit();
 
+                // Assign out parameter database book id
+                dbBookId = bookId;
                 return true;
             }
             catch
@@ -413,6 +417,7 @@ namespace ProEpService
                 try
                 {
                     mytransaction.Rollback();
+                    dbBookId = -1;
                     return false;
                 }
                 catch (Exception)
@@ -441,7 +446,9 @@ namespace ProEpService
                 while (reader.Read())
                 {
                     Book book = new Book(reader["name"].ToString(), reader["author"].ToString(), Convert.ToDouble(reader["price"]), reader["isbn"].ToString(), reader["publisher"].ToString(), reader["bookCondition"].ToString());
+                    book.BookId = Convert.ToInt32(reader["book_id"]);
                     Post post = new Post(reader["description"].ToString(), reader["title"].ToString(), book, reader["place"].ToString());
+                    post.PostId = Convert.ToInt32(reader["post_id"]);
 
                     dbPosts.Add(post);
                 }
@@ -455,6 +462,136 @@ namespace ProEpService
             catch (Exception)
             {
                 return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public string GetPassword(string username)
+        {
+            try
+            {
+                String sql = "SELECT password FROM client WHERE username = '" + username + "';";
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                string password = "";
+
+                while (reader.Read())
+                {
+                    password = reader[0].ToString();
+                }
+
+                return password;
+            }
+            catch (Exception)
+            {
+                return "<Try again later>";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool ChangePassword(string username, string password)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            MySqlTransaction mytransaction;
+
+            // Start transaction
+            mytransaction = connection.BeginTransaction();
+            command.Connection = connection;
+            command.Transaction = mytransaction;
+
+            try
+            {
+                command.CommandText = "UPDATE client SET password = '" + password + "' WHERE username = '" + username + "';";
+                command.ExecuteNonQuery();
+                mytransaction.Commit();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                mytransaction.Rollback();
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public List<Post> GetUserPosts(string username)
+        {
+            List<Post> dbPosts = new List<Post>();
+
+            try
+            {
+                String sql = ("SELECT * FROM post INNER JOIN book ON post.post_id = book.post_post_id WHERE client_username = '" + username + "';");
+                MySqlCommand command = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Book book = new Book(reader["name"].ToString(), reader["author"].ToString(), Convert.ToDouble(reader["price"]), reader["isbn"].ToString(), reader["publisher"].ToString(), reader["bookCondition"].ToString());
+                    book.BookId = Convert.ToInt32(reader["book_id"]);
+                    Post post = new Post(reader["description"].ToString(), reader["title"].ToString(), book, reader["place"].ToString());
+                    post.PostId = Convert.ToInt32(reader["post_id"]);
+
+                    dbPosts.Add(post);
+                }
+
+                return dbPosts;
+            }
+            catch (MySqlException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool DeletePost(string username, int postId)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            MySqlTransaction mytransaction;
+
+            // Start transaction
+            mytransaction = connection.BeginTransaction();
+            command.Connection = connection;
+            command.Transaction = mytransaction;
+
+            try
+            {
+                command.CommandText = "DELETE FROM book WHERE post_post_id = " + postId + ";";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM post WHERE post_id = " + postId + " AND client_username = '" + username + "';";
+                command.ExecuteNonQuery();
+
+                mytransaction.Commit();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                mytransaction.Rollback();
+                return false;
             }
             finally
             {
