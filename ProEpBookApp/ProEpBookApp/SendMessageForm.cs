@@ -35,8 +35,8 @@ namespace ProEpBookApp
             }
 
             var message = new ServiceReferenceApplication.Message();
-            message.Client = this.username;
-            message.Seller = this.seller;
+            message.Sender = this.username;
+            message.Receiver = this.seller;
             message.PostId = this.postId;
             message.MessageText = rtbText.Text;
 

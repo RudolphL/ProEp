@@ -11,7 +11,7 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer, IProfile, IPersonal, ICommunication
+    public class ServiceApplication : ILogin, IPortal, IViewer, IProfile, IPersonal, ICommunication
 
     {
         #region fields
@@ -22,7 +22,6 @@ namespace ProEpService
 
         static Action<List<Post>> eventUpdatePosts = delegate { };
         static Action<List<Post>> eventViewerUpdatePosts = delegate { };
-        private Action update_message = delegate { };
 
         #endregion
 
@@ -150,9 +149,10 @@ namespace ProEpService
 
             dbHelper.CreatePost(post, username, out postId, out bookId);
 
-            // Assigning the postid and bookid
+            // Assigning the postid and bookid and seller
             post.PostId = postId;
             post.Book.BookId = bookId;
+            post.Seller = username;
             this.posts.Add(post);
 
             // Trigger event for all users.
@@ -176,67 +176,6 @@ namespace ProEpService
                 }
             }
             return null;
-        }
-
-        #endregion
-
-        #region Message methods
-
-        /// <summary>
-        /// This method will unsubscribe the client from getting notify by the callback of IUpdateMessage
-        /// </summary>
-        public void UpdateMessageUnsubcribe()
-        {
-            update_message -= OperationContext.Current.GetCallbackChannel<IUpdateMessageCallback>().UpdateMessage;
-        }
-
-        /// <summary>
-        /// This method will subcribe the client to receiver a trigger from the client( a call back) with IUpdateMessage 
-        /// </summary>
-        public void UpdateMessageSubscribe()
-        {
-            update_message += OperationContext.Current.GetCallbackChannel<IUpdateMessageCallback>().UpdateMessage;
-        }
-
-        /// <summary>
-        /// This method will send the message text to the database and then notify the client (refresh)
-        /// The message will be send as a Message type object which contain : sender, receiver, id and text.
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public void SendMessage(Message message)
-        {
-            DBHelper dbHelper = new DBHelper();
-
-            if (dbHelper.InsertMessage(message) == true)
-            {
-                update_message();
-            }         
-        }
-
-        /// <summary>
-        /// This method will get the ListOfPerson that the user have chated with before.
-        /// </summary>
-        /// <param name="user"> the username of the current user</param>
-        /// <returns></returns>
-        public List<string> GetListOfPersonOnMessage(string username)
-        {
-            DBHelper dbHelper = new DBHelper();
-            return dbHelper.GetListOfPersonOnMessage(username);
-        }
-
-        /// <summary>
-        /// This method will get the ListOfMessage( return a List of type Message) 
-        /// by searching through the database and then find the message 
-        /// with sender and user like parameters had declared
-        /// </summary>
-        /// <param name="sender_username">user name of sender</param>
-        /// <param name="receiver_username">user name of receiver</param>
-        /// <returns></returns>
-        public List<Message> GetListOfMessage(string sender_username, string receiver_username)
-        {
-            DBHelper dbHelper = new DBHelper();
-            return dbHelper.GetMessages(sender_username, receiver_username);
         }
 
         #endregion
@@ -380,6 +319,35 @@ namespace ProEpService
         {
             DBHelper dbHelper = new DBHelper();
             return dbHelper.SendMessage(msg);
+        }
+
+        public List<PostMessage> GetPostMessage(string username)
+        {
+            List<PostMessage> postMessages = new List<PostMessage>();
+
+            DBHelper dbHelper = new DBHelper();
+            List<int> postIds = dbHelper.GetUserCommunicationPosts(username);
+
+            if (postIds == null)
+            {
+                return null;
+            }
+
+            foreach (int id in postIds)
+            {
+                string title = dbHelper.GetPostTitle(id);
+                string seller = dbHelper.GetPostSeller(id);
+                PostMessage postMsg = new PostMessage(id, title, seller);
+                postMessages.Add(postMsg);
+            }
+
+            return postMessages;
+        }
+
+        public List<Message> GetMessages(int postId)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.GetPostMessages(postId);
         }
     }
 }

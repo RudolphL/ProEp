@@ -14,8 +14,8 @@ namespace ProEpService
     {
         private int messageId;
         private String messageText;
-        private String seller;
-        private String client;
+        private String sender;
+        private String receiver;
         private int postId;
 
          [DataMember]
@@ -33,17 +33,17 @@ namespace ProEpService
         }
 
          [DataMember]
-        public String Seller
+        public String Sender
         {
-            get { return this.seller; }
-            private set { this.seller = value; }
+            get { return this.sender; }
+            private set { this.sender = value; }
         }
 
          [DataMember]
-        public String Client
+        public String Receiver
         {
-            get { return this.client; }
-            private set { this.client = value; }
+            get { return this.receiver; }
+            private set { this.receiver = value; }
         }
 
          [DataMember]
@@ -53,12 +53,12 @@ namespace ProEpService
             private set { this.postId = value; }
         }
 
-        public Message(int messageId, String messageText, String seller, String client, int postId)
+        public Message(int messageId, String messageText, String sender, String receiver, int postId)
         {
             this.messageId = messageId;
             this.messageText = messageText;
-            this.seller = seller;
-            this.client = client;
+            this.sender = sender;
+            this.receiver = receiver;
             this.postId = postId;
         }
     }

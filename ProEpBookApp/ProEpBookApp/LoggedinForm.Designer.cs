@@ -35,7 +35,6 @@
             this.btnMyMessage = new System.Windows.Forms.Button();
             this.btnCreateAPost = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAbout = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnClearFilter = new System.Windows.Forms.Button();
@@ -117,7 +116,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Beige;
-            this.groupBox1.Controls.Add(this.btnAbout);
             this.groupBox1.Controls.Add(this.btnMyMessage);
             this.groupBox1.Controls.Add(this.btnMyPost);
             this.groupBox1.Controls.Add(this.btnMyProfile);
@@ -129,16 +127,6 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Navigation";
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Location = new System.Drawing.Point(780, 25);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(179, 54);
-            this.btnAbout.TabIndex = 4;
-            this.btnAbout.Text = "About";
-            this.btnAbout.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -466,7 +454,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPriceMax;
         private System.Windows.Forms.ColumnHeader Condition;
-        private System.Windows.Forms.Button btnAbout;
     }
 }
 

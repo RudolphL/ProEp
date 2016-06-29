@@ -12,5 +12,11 @@ namespace ProEpService
     {
         [OperationContract]
         bool SendMsg(Message msg);
+
+        [OperationContract]
+        List<PostMessage> GetPostMessage(string username);
+
+        [OperationContract]
+        List<Message> GetMessages(int postId);
     }
 }

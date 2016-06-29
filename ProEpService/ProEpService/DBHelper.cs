@@ -614,7 +614,7 @@ namespace ProEpService
 
             try
             {
-                command.CommandText = "INSERT INTO message (messagetext, client_sender, client_receiver, msg_post_id) VALUES ('" + message.MessageText.Replace("'", "''") + "','" + message.Seller + "','" + message.Client + "'," + message.PostId + ");";
+                command.CommandText = "INSERT INTO message (messagetext, client_sender, client_receiver, msg_post_id) VALUES ('" + message.MessageText.Replace("'", "''") + "','" + message.Sender + "','" + message.Receiver + "'," + message.PostId + ");";
                 command.ExecuteNonQuery();
 
                 mytransaction.Commit();
@@ -634,193 +634,137 @@ namespace ProEpService
 
         #region Message interaction
 
-        /// <summary>
-        /// Get the max id in the message table
-        /// </summary>
-        /// <returns></returns>
-        private int GetMessageMaxId()
+        public List<int> GetUserCommunicationPosts(string username)
         {
-            return 0;
+            List<int> postsids = new List<int>();
 
-            //try
-            //{
-            //    String sql = ("SELECT MAX(message_id) from message;");
-            //    MySqlCommand command = new MySqlCommand(sql, connection);
+            try
+            {
+                String sql = ("SELECT DISTINCT msg_post_id FROM message WHERE client_sender = '" + username + "' OR client_receiver = '" + username + "';");
+                MySqlCommand command = new MySqlCommand(sql, connection);
 
-            //    connection.Open();
-            //    MySqlDataReader reader = command.ExecuteReader();
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
 
-            //    int count = 0;
+                while (reader.Read())
+                {
+                    postsids.Add(Convert.ToInt32(reader[0]));
+                }
 
-            //    while (reader.Read())
-            //    {
-            //        count = Convert.ToInt32(reader[0]);
-            //    }
-
-            //    return count;
-            //}
-            //catch (MySqlException)
-            //{
-            //    return -1;
-            //}
-            //catch (Exception)
-            //{
-            //    return -1;
-            //}
-            //finally
-            //{
-            //    connection.Close();
-            //}
+                return postsids;
+            }
+            catch (MySqlException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        /// <summary>
-        /// insert a row in to the message table
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public bool InsertMessage(Message message)
+        public List<Message> GetPostMessages(int postId)
         {
-            return true;
+            List<Message> messages = new List<Message>();
 
-            //connection.Open();
-            //MySqlCommand command = connection.CreateCommand();
-            //MySqlTransaction mytransaction;
+            try
+            {
+                String sql = ("SELECT * FROM message WHERE msg_post_id = " + postId + " ORDER BY message_id DESC;");
+                MySqlCommand command = new MySqlCommand(sql, connection);
 
-            //// Start transaction
-            //mytransaction = connection.BeginTransaction();
-            //command.Connection = connection;
-            //command.Transaction = mytransaction;
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
 
-            //try
-            //{
-            //    int messageId = this.GetMessageMaxId() + 1;
-            //    command.CommandText = "INSERT INTO message (message_id, messagetext, client_sender, client_receiver) VALUES ('" + messageId + "','" + message.MessageText + "','" + message.Client_sender + "','" + message.Client_receiver + "');";
-            //    command.ExecuteNonQuery();
-            //    mytransaction.Commit();
-            //    return true;
-            //}
-            //catch
-            //{
-            //    try
-            //    {
-            //        mytransaction.Rollback();
-            //        return false;
-            //    }
-            //    catch (Exception)
-            //    {
-            //        throw;
-            //    }
-            //}
-            //finally
-            //{
-            //    connection.Close();
-            //}
+                while (reader.Read())
+                {
+                    Message msg = new Message(Convert.ToInt32(reader["message_id"]), reader["messagetext"].ToString(), reader["client_sender"].ToString(), reader["client_receiver"].ToString(), postId);
+                    messages.Add(msg);
+                }
+
+                return messages;
+            }
+            catch (MySqlException)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        /// <summary>
-        /// Get the list of person who have conversation with the selected user
-        /// </summary>
-        /// <param name="username">selected user's username</param>
-        /// <returns></returns>
-        public List<String> GetListOfPersonOnMessage(String username)
+        public string GetPostTitle(int postId)
         {
-            return null;
+            try
+            {
+                String sql = ("SELECT title from post WHERE post_id = " + postId + ";");
+                MySqlCommand command = new MySqlCommand(sql, connection);
 
-            //try
-            //{
-            //    List<String> persons = new List<String>();
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
 
-            //    String personsqlreceiver = "SELECT DISTINCT client_receiver FROM message WHERE client_sender = '" + username + "';";
-            //    MySqlCommand command = new MySqlCommand(personsqlreceiver, connection);
+                string title = "";
 
-            //    String person = "";
+                while (reader.Read())
+                {
+                    title = reader[0].ToString();
+                }
 
-            //    connection.Open();
-            //    MySqlDataReader reader = command.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        person = Convert.ToString(reader[0]);
-            //        persons.Add(person);
-            //    }
-
-            //    String personsqlsender = "SELECT DISTINCT client sender FROM message WHERE client_receiver NOT IN ( SELECT DISTINCT client_receiver FROM message WHERE client_sender = '" + username + "');";
-            //    MySqlCommand command2 = new MySqlCommand(personsqlreceiver, connection);
-            //    person = "";
-
-            //    while (reader.Read())
-            //    {
-            //        person = Convert.ToString(reader[0]);
-            //        persons.Add(person);
-            //    }
-            //    return persons;
-
-            //}
-            //catch (MySqlException)
-            //{
-            //    return null;
-            //}
-            //catch (Exception)
-            //{
-            //    return null;
-            //}
-            //finally
-            //{
-            //    connection.Close();
-            //}
+                return title;
+            }
+            catch (MySqlException)
+            {
+                return "";
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        /// <summary>
-        /// Get a list of all Message from a selected send and a selected receiver
-        /// </summary>
-        /// <param name="sender_username"></param>
-        /// <param name="receiver_username"></param>
-        /// <returns></returns>
-        public List<Message> GetMessages(String sender_username, String receiver_username)
+        public string GetPostSeller(int postId)
         {
-            return null;
+            try
+            {
+                String sql = ("SELECT client_username from post WHERE post_id = " + postId + ";");
+                MySqlCommand command = new MySqlCommand(sql, connection);
 
-            //try
-            //{
-            //    List<Message> messages = new List<Message>();
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
 
-            //    String messagesql = "SELECT * FROM message WHERE client_sender = '" + sender_username + "' AND client_receiver = '" + receiver_username + "';";
+                string title = "";
 
-            //    MySqlCommand command = new MySqlCommand(messagesql, connection);
+                while (reader.Read())
+                {
+                    title = reader[0].ToString();
+                }
 
-            //    int messageid = 0;
-            //    String text = "";
-            //    String sender = "";
-            //    String receiver = "";
-
-            //    connection.Open();
-            //    MySqlDataReader reader = command.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        messageid = Convert.ToInt32(reader[0]);
-            //        text = Convert.ToString(reader[1]);
-            //        sender = Convert.ToString(reader[2]);
-            //        receiver = Convert.ToString(reader[3]);
-
-            //        Message tempmessage = new Message(messageid, text, sender, receiver);
-            //        messages.Add(tempmessage);
-            //    }
-            //    return messages;
-
-            //}
-            //catch (MySqlException)
-            //{
-            //    return null;
-            //}
-            //catch (Exception)
-            //{
-            //    return null;
-            //}
-            //finally
-            //{
-            //    connection.Close();
-            //}
+                return title;
+            }
+            catch (MySqlException)
+            {
+                return "";
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         #endregion
