@@ -16,6 +16,14 @@ namespace ProEpService
         private Book book;
         private string place;
         private int postId;
+        private string seller;
+
+        [DataMember]
+        public string Seller
+        {
+            get { return this.seller; }
+            set { this.seller = value; }
+        }
 
         [DataMember]
         public int PostId

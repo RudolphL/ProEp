@@ -38,12 +38,13 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.listviewPosts = new System.Windows.Forms.ListView();
-            this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Place = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            this.Condition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
@@ -135,10 +136,11 @@
             // 
             this.listviewPosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listviewPosts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Author,
+            this.Title,
             this.Description,
+            this.Location,
             this.Price,
-            this.Place});
+            this.Condition});
             this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.listviewPosts.FullRowSelect = true;
@@ -152,25 +154,25 @@
             this.listviewPosts.UseCompatibleStateImageBehavior = false;
             this.listviewPosts.View = System.Windows.Forms.View.Details;
             // 
-            // Author
+            // Title
             // 
-            this.Author.Text = "Author";
-            this.Author.Width = 135;
+            this.Title.Text = "Title";
+            this.Title.Width = 200;
             // 
             // Description
             // 
             this.Description.Text = "Description";
-            this.Description.Width = 352;
+            this.Description.Width = 400;
             // 
             // Price
             // 
             this.Price.Text = "Price";
             this.Price.Width = 89;
             // 
-            // Place
+            // Location
             // 
-            this.Place.Text = "Place";
-            this.Place.Width = 390;
+            this.Location.Text = "Location";
+            this.Location.Width = 150;
             // 
             // imageList1
             // 
@@ -181,6 +183,11 @@
             // visualStyler1
             // 
             this.visualStyler1.HostForm = this;
+            // 
+            // Condition
+            // 
+            this.Condition.Text = "Condition";
+            this.Condition.Width = 100;
             // 
             // MainForm
             // 
@@ -211,10 +218,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListView listviewPosts;
-        private System.Windows.Forms.ColumnHeader Author;
+        private System.Windows.Forms.ColumnHeader Title;
         private System.Windows.Forms.ColumnHeader Description;
         private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader Place;
+        private System.Windows.Forms.ColumnHeader Location;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnLogin;
@@ -222,6 +229,7 @@
         private System.Windows.Forms.TextBox txbSearch;
         private SkinSoft.VisualStyler.VisualStyler visualStyler1;
         private System.Windows.Forms.Button btnClearFilter;
+        private System.Windows.Forms.ColumnHeader Condition;
     }
 }
 

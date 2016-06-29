@@ -98,8 +98,10 @@ namespace ProEpBookApp
 
             foreach (ServiceReferenceApplication.Post item in this.postList)
             {
-                string[] row = { item.Book.Author, item.Description, item.Book.Price.ToString(), item.Place };
+                string[] row = { item.Title, item.Description, item.Place, item.Book.Price.ToString(), item.Book.BookCondition };
                 var listViewItem = new ListViewItem(row);
+                // Adding the Tag as the id (now shown in the listview).
+                listViewItem.Tag = item.PostId;
                 listviewPosts.Items.Add(listViewItem);
             }
         }

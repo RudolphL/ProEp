@@ -11,7 +11,7 @@ using System.Web;
 namespace ProEpService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer, IProfile, IPersonal
+    public class ServiceApplication : ILogin, IMessage, IPortal, IViewer, IProfile, IPersonal, ICommunication
 
     {
         #region fields
@@ -375,5 +375,11 @@ namespace ProEpService
         }
 
         #endregion
+
+        public bool SendMsg(Message msg)
+        {
+            DBHelper dbHelper = new DBHelper();
+            return dbHelper.SendMessage(msg);
+        }
     }
 }

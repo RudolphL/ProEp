@@ -33,7 +33,14 @@ namespace ProEpBookApp
         private void btnMyMessage_Click(object sender, EventArgs e)
         {
             MessageForm messageform = new MessageForm(username);
-            messageform.ShowDialog();
+            messageform.FormClosed += messageform_FormClosed;
+            this.Visible = false;
+            messageform.Show();
+        }
+
+        void messageform_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
         }
 
         private void btnCreateAPost_Click(object sender, EventArgs e)
@@ -63,8 +70,10 @@ namespace ProEpBookApp
 
             foreach (ServiceReferenceApplication.Post item in postList)
             {
-                string[] row = { item.Book.Author, item.Description, item.Book.Price.ToString(), item.Place };
+                string[] row = { item.Title, item.Description, item.Place, item.Book.Price.ToString(), item.Book.BookCondition };
                 var listViewItem = new ListViewItem(row);
+                // Adding the Tag as the id (now shown in the listview).
+                listViewItem.Tag = item.PostId;
                 listviewPosts.Items.Add(listViewItem);
             }
         }
@@ -221,6 +230,51 @@ namespace ProEpBookApp
         }
 
         void myPostsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
+        }
+
+        private ServiceReferenceApplication.Post GetPost(int id)
+        {
+            foreach (var item in this.postList)
+            {
+                if (item.PostId == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Double click event for the listview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listviewPosts_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listviewPosts.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Please select a post");
+                return;
+            }
+
+            ListViewItem item = listviewPosts.SelectedItems[0];
+            string tagId = item.Tag.ToString();
+
+            var post = this.GetPost(Convert.ToInt32(tagId));
+            ViewPostForm viewPostForm = new ViewPostForm(this.username, post);
+            viewPostForm.FormClosed += viewPostForm_FormClosed;
+            viewPostForm.Show();
+            this.Visible = false;
+        }
+
+        /// <summary>
+        /// Triggered when the ViewPostForm is closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void viewPostForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Visible = true;
         }

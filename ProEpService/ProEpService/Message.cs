@@ -3,56 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+
 
 namespace ProEpService
 {
+     [DataContract]
     public class Message
     {
+        private int messageId;
+        private String messageText;
+        private String seller;
+        private String client;
+        private int postId;
 
-        //fields
-        private int message_id;                //id possition of the message 
-        private String messagetext;            //the message (text)
-        private String client_sender;          //the name of the one who send the text
-        private String client_receiver;        //the name of the one who receive the text
-
-        #region properties
-        public int Message_id
+         [DataMember]
+        public int MessageId
         {
-            get { return this.message_id; }
-            private set { this.message_id = value; }
+            get { return this.messageId; }
+            private set { this.messageId = value; }
         }
 
+         [DataMember]
         public String MessageText
         {
-            get { return this.messagetext; }
-            private  set { this.messagetext = value; }
+            get { return this.messageText; }
+            private  set { this.messageText = value; }
         }
 
-        public String Client_sender
+         [DataMember]
+        public String Seller
         {
-            get { return this.client_sender; }
-            private set { this.client_sender = value; }
+            get { return this.seller; }
+            private set { this.seller = value; }
         }
 
-        public String Client_receiver
+         [DataMember]
+        public String Client
         {
-            get { return this.client_receiver; }
-            private set { this.client_receiver = value; }
+            get { return this.client; }
+            private set { this.client = value; }
         }
-        #endregion
-        //constructor
 
-        public Message(int message_id, String messagetext, String client_sender, String client_receiver)
+         [DataMember]
+        public int PostId
         {
-            this.Message_id = message_id;
-            this.MessageText = messagetext;
-            this.Client_sender = client_sender;
-            this.Client_receiver = client_receiver;
-
+            get { return this.postId; }
+            private set { this.postId = value; }
         }
 
-        //method
-
-        
+        public Message(int messageId, String messageText, String seller, String client, int postId)
+        {
+            this.messageId = messageId;
+            this.messageText = messageText;
+            this.seller = seller;
+            this.client = client;
+            this.postId = postId;
+        }
     }
 }

@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoggedinForm));
-            this.btnHomePage = new System.Windows.Forms.Button();
             this.btnMyProfile = new System.Windows.Forms.Button();
             this.btnMyPost = new System.Windows.Forms.Button();
             this.btnMyMessage = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
             this.btnCreateAPost = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnClearFilter = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.listviewPosts = new System.Windows.Forms.ListView();
-            this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PostTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Place = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Condition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,19 +70,9 @@
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnHomePage
-            // 
-            this.btnHomePage.Location = new System.Drawing.Point(13, 25);
-            this.btnHomePage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHomePage.Name = "btnHomePage";
-            this.btnHomePage.Size = new System.Drawing.Size(179, 54);
-            this.btnHomePage.TabIndex = 0;
-            this.btnHomePage.Text = "Home Page";
-            this.btnHomePage.UseVisualStyleBackColor = true;
-            // 
             // btnMyProfile
             // 
-            this.btnMyProfile.Location = new System.Drawing.Point(200, 25);
+            this.btnMyProfile.Location = new System.Drawing.Point(19, 25);
             this.btnMyProfile.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyProfile.Name = "btnMyProfile";
             this.btnMyProfile.Size = new System.Drawing.Size(179, 54);
@@ -93,7 +83,7 @@
             // 
             // btnMyPost
             // 
-            this.btnMyPost.Location = new System.Drawing.Point(387, 25);
+            this.btnMyPost.Location = new System.Drawing.Point(206, 25);
             this.btnMyPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyPost.Name = "btnMyPost";
             this.btnMyPost.Size = new System.Drawing.Size(179, 54);
@@ -104,7 +94,7 @@
             // 
             // btnMyMessage
             // 
-            this.btnMyMessage.Location = new System.Drawing.Point(573, 25);
+            this.btnMyMessage.Location = new System.Drawing.Point(392, 25);
             this.btnMyMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyMessage.Name = "btnMyMessage";
             this.btnMyMessage.Size = new System.Drawing.Size(179, 54);
@@ -112,16 +102,6 @@
             this.btnMyMessage.Text = "My Message";
             this.btnMyMessage.UseVisualStyleBackColor = true;
             this.btnMyMessage.Click += new System.EventHandler(this.btnMyMessage_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Location = new System.Drawing.Point(760, 25);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(179, 54);
-            this.btnAbout.TabIndex = 4;
-            this.btnAbout.Text = "About";
-            this.btnAbout.UseVisualStyleBackColor = true;
             // 
             // btnCreateAPost
             // 
@@ -141,7 +121,6 @@
             this.groupBox1.Controls.Add(this.btnMyMessage);
             this.groupBox1.Controls.Add(this.btnMyPost);
             this.groupBox1.Controls.Add(this.btnMyProfile);
-            this.groupBox1.Controls.Add(this.btnHomePage);
             this.groupBox1.Location = new System.Drawing.Point(21, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -150,6 +129,16 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Navigation";
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Location = new System.Drawing.Point(780, 25);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(179, 54);
+            this.btnAbout.TabIndex = 4;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -215,10 +204,11 @@
             // 
             this.listviewPosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.listviewPosts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Author,
+            this.PostTitle,
             this.Description,
+            this.Location,
             this.Price,
-            this.Place});
+            this.Condition});
             this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.listviewPosts.FullRowSelect = true;
@@ -231,26 +221,32 @@
             this.listviewPosts.TabIndex = 0;
             this.listviewPosts.UseCompatibleStateImageBehavior = false;
             this.listviewPosts.View = System.Windows.Forms.View.Details;
+            this.listviewPosts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listviewPosts_MouseDoubleClick);
             // 
-            // Author
+            // PostTitle
             // 
-            this.Author.Text = "Author";
-            this.Author.Width = 135;
+            this.PostTitle.Text = "Title";
+            this.PostTitle.Width = 200;
             // 
             // Description
             // 
             this.Description.Text = "Description";
-            this.Description.Width = 352;
+            this.Description.Width = 400;
+            // 
+            // Location
+            // 
+            this.Location.Text = "Location";
+            this.Location.Width = 150;
             // 
             // Price
             // 
             this.Price.Text = "Price";
             this.Price.Width = 89;
             // 
-            // Place
+            // Condition
             // 
-            this.Place.Text = "Place";
-            this.Place.Width = 390;
+            this.Condition.Text = "Condition";
+            this.Condition.Width = 100;
             // 
             // groupBox5
             // 
@@ -439,20 +435,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnHomePage;
         private System.Windows.Forms.Button btnMyProfile;
         private System.Windows.Forms.Button btnMyPost;
         private System.Windows.Forms.Button btnMyMessage;
-        private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Button btnCreateAPost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListView listviewPosts;
-        private System.Windows.Forms.ColumnHeader Author;
+        private System.Windows.Forms.ColumnHeader PostTitle;
         private System.Windows.Forms.ColumnHeader Description;
         private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader Place;
+        private System.Windows.Forms.ColumnHeader Location;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnFilterPrice;
         private System.Windows.Forms.Button btnFilterISBN;
@@ -471,6 +465,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPriceMax;
+        private System.Windows.Forms.ColumnHeader Condition;
+        private System.Windows.Forms.Button btnAbout;
     }
 }
 
