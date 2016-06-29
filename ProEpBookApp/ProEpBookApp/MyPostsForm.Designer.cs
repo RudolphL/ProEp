@@ -36,9 +36,10 @@
             // 
             // btnDeletePost
             // 
-            this.btnDeletePost.Location = new System.Drawing.Point(12, 472);
+            this.btnDeletePost.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePost.Location = new System.Drawing.Point(130, 489);
             this.btnDeletePost.Name = "btnDeletePost";
-            this.btnDeletePost.Size = new System.Drawing.Size(934, 47);
+            this.btnDeletePost.Size = new System.Drawing.Size(761, 47);
             this.btnDeletePost.TabIndex = 0;
             this.btnDeletePost.Text = "Delete Post";
             this.btnDeletePost.UseVisualStyleBackColor = true;
@@ -50,15 +51,15 @@
             this.listviewPosts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.PostTitle,
             this.Description});
-            this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listviewPosts.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.listviewPosts.FullRowSelect = true;
             this.listviewPosts.GridLines = true;
-            this.listviewPosts.Location = new System.Drawing.Point(13, 13);
+            this.listviewPosts.Location = new System.Drawing.Point(130, 33);
             this.listviewPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listviewPosts.MultiSelect = false;
             this.listviewPosts.Name = "listviewPosts";
-            this.listviewPosts.Size = new System.Drawing.Size(933, 452);
+            this.listviewPosts.Size = new System.Drawing.Size(761, 424);
             this.listviewPosts.TabIndex = 1;
             this.listviewPosts.UseCompatibleStateImageBehavior = false;
             this.listviewPosts.View = System.Windows.Forms.View.Details;
@@ -77,7 +78,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 531);
+            this.BackgroundImage = global::ProEpBookApp.Properties.Resources.Paper_Proselyte_Graphics;
+            this.ClientSize = new System.Drawing.Size(1016, 548);
             this.Controls.Add(this.listviewPosts);
             this.Controls.Add(this.btnDeletePost);
             this.Name = "MyPostsForm";

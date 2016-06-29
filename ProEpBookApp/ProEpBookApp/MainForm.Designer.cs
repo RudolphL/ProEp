@@ -40,11 +40,11 @@
             this.listviewPosts = new System.Windows.Forms.ListView();
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Condition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
-            this.Condition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
@@ -52,8 +52,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Beige;
             this.groupBox3.Controls.Add(this.btnRegister);
             this.groupBox3.Controls.Add(this.btnLogin);
+            this.groupBox3.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(1020, 25);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -88,10 +90,12 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.Beige;
             this.groupBox4.Controls.Add(this.btnClearFilter);
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.txbSearch);
             this.groupBox4.Controls.Add(this.listviewPosts);
+            this.groupBox4.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(16, 25);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
@@ -164,15 +168,20 @@
             this.Description.Text = "Description";
             this.Description.Width = 400;
             // 
+            // Location
+            // 
+            this.Location.Text = "Location";
+            this.Location.Width = 150;
+            // 
             // Price
             // 
             this.Price.Text = "Price";
             this.Price.Width = 89;
             // 
-            // Location
+            // Condition
             // 
-            this.Location.Text = "Location";
-            this.Location.Width = 150;
+            this.Condition.Text = "Condition";
+            this.Condition.Width = 100;
             // 
             // imageList1
             // 
@@ -183,11 +192,6 @@
             // visualStyler1
             // 
             this.visualStyler1.HostForm = this;
-            // 
-            // Condition
-            // 
-            this.Condition.Text = "Condition";
-            this.Condition.Width = 100;
             // 
             // MainForm
             // 

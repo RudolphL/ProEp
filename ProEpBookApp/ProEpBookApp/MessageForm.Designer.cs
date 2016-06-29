@@ -33,9 +33,9 @@
             this.tbChatbox = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rtbChatLog = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.rtbChatLog = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -43,11 +43,11 @@
             // lbPosts
             // 
             this.lbPosts.FormattingEnabled = true;
-            this.lbPosts.ItemHeight = 16;
+            this.lbPosts.ItemHeight = 17;
             this.lbPosts.Location = new System.Drawing.Point(23, 21);
             this.lbPosts.Margin = new System.Windows.Forms.Padding(4);
             this.lbPosts.Name = "lbPosts";
-            this.lbPosts.Size = new System.Drawing.Size(253, 388);
+            this.lbPosts.Size = new System.Drawing.Size(253, 378);
             this.lbPosts.TabIndex = 0;
             this.lbPosts.SelectedIndexChanged += new System.EventHandler(this.lbPosts_SelectedIndexChanged);
             this.lbPosts.MouseHover += new System.EventHandler(this.lbPosts_MouseHover);
@@ -79,32 +79,12 @@
             this.panel1.Controls.Add(this.rtbChatLog);
             this.panel1.Controls.Add(this.btnSend);
             this.panel1.Controls.Add(this.tbChatbox);
-            this.panel1.Location = new System.Drawing.Point(373, 55);
+            this.panel1.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(364, 68);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(540, 420);
             this.panel1.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Beige;
-            this.panel2.Controls.Add(this.lbPosts);
-            this.panel2.Location = new System.Drawing.Point(49, 53);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(303, 421);
-            this.panel2.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 35);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "MY MESSAGE";
             // 
             // rtbChatLog
             // 
@@ -114,6 +94,28 @@
             this.rtbChatLog.Size = new System.Drawing.Size(507, 311);
             this.rtbChatLog.TabIndex = 3;
             this.rtbChatLog.Text = "";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Beige;
+            this.panel2.Controls.Add(this.lbPosts);
+            this.panel2.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(40, 66);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(303, 421);
+            this.panel2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(42, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(288, 41);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "MY MESSAGE";
             // 
             // MessageForm
             // 
@@ -128,7 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Messages";
+            this.Text = "My Messages";
             this.Activated += new System.EventHandler(this.MessageForm_Activated);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

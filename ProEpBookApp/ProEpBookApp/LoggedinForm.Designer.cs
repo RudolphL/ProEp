@@ -71,6 +71,7 @@
             // 
             // btnMyProfile
             // 
+            this.btnMyProfile.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMyProfile.Location = new System.Drawing.Point(19, 25);
             this.btnMyProfile.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyProfile.Name = "btnMyProfile";
@@ -82,6 +83,7 @@
             // 
             // btnMyPost
             // 
+            this.btnMyPost.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMyPost.Location = new System.Drawing.Point(206, 25);
             this.btnMyPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyPost.Name = "btnMyPost";
@@ -93,6 +95,7 @@
             // 
             // btnMyMessage
             // 
+            this.btnMyMessage.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMyMessage.Location = new System.Drawing.Point(392, 25);
             this.btnMyMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnMyMessage.Name = "btnMyMessage";
@@ -104,6 +107,7 @@
             // 
             // btnCreateAPost
             // 
+            this.btnCreateAPost.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateAPost.Location = new System.Drawing.Point(28, 46);
             this.btnCreateAPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateAPost.Name = "btnCreateAPost";
@@ -119,6 +123,7 @@
             this.groupBox1.Controls.Add(this.btnMyMessage);
             this.groupBox1.Controls.Add(this.btnMyPost);
             this.groupBox1.Controls.Add(this.btnMyProfile);
+            this.groupBox1.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -132,6 +137,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.btnCreateAPost);
+            this.groupBox2.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(1050, 137);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -148,6 +154,7 @@
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.txbSearch);
             this.groupBox4.Controls.Add(this.listviewPosts);
+            this.groupBox4.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(24, 137);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
@@ -159,6 +166,7 @@
             // 
             // btnClearFilter
             // 
+            this.btnClearFilter.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearFilter.Location = new System.Drawing.Point(817, 46);
             this.btnClearFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearFilter.Name = "btnClearFilter";
@@ -170,6 +178,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(441, 46);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
@@ -181,11 +190,11 @@
             // 
             // txbSearch
             // 
-            this.txbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSearch.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSearch.Location = new System.Drawing.Point(45, 47);
             this.txbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(387, 34);
+            this.txbSearch.Size = new System.Drawing.Size(387, 24);
             this.txbSearch.TabIndex = 1;
             // 
             // listviewPosts
@@ -197,7 +206,7 @@
             this.Location,
             this.Price,
             this.Condition});
-            this.listviewPosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listviewPosts.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listviewPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.listviewPosts.FullRowSelect = true;
             this.listviewPosts.GridLines = true;
@@ -248,7 +257,7 @@
             this.groupBox5.Controls.Add(this.btnFilterPrice);
             this.groupBox5.Controls.Add(this.btnFilterISBN);
             this.groupBox5.Controls.Add(this.btnFilterAuthor);
-            this.groupBox5.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(1050, 314);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
@@ -261,59 +270,62 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(175, 251);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "max range";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 251);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "min range";
             // 
             // tbPriceMax
             // 
-            this.tbPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPriceMax.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPriceMax.Location = new System.Drawing.Point(179, 275);
             this.tbPriceMax.Margin = new System.Windows.Forms.Padding(4);
             this.tbPriceMax.Name = "tbPriceMax";
-            this.tbPriceMax.Size = new System.Drawing.Size(140, 34);
+            this.tbPriceMax.Size = new System.Drawing.Size(140, 24);
             this.tbPriceMax.TabIndex = 6;
             // 
             // tbPriceMin
             // 
-            this.tbPriceMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPriceMin.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPriceMin.Location = new System.Drawing.Point(19, 275);
             this.tbPriceMin.Margin = new System.Windows.Forms.Padding(4);
             this.tbPriceMin.Name = "tbPriceMin";
-            this.tbPriceMin.Size = new System.Drawing.Size(140, 34);
+            this.tbPriceMin.Size = new System.Drawing.Size(140, 24);
             this.tbPriceMin.TabIndex = 6;
             // 
             // txbFilterISBN
             // 
-            this.txbFilterISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbFilterISBN.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFilterISBN.Location = new System.Drawing.Point(19, 137);
             this.txbFilterISBN.Margin = new System.Windows.Forms.Padding(4);
             this.txbFilterISBN.Name = "txbFilterISBN";
-            this.txbFilterISBN.Size = new System.Drawing.Size(299, 34);
+            this.txbFilterISBN.Size = new System.Drawing.Size(299, 24);
             this.txbFilterISBN.TabIndex = 5;
             // 
             // txbFilterAuthor
             // 
-            this.txbFilterAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbFilterAuthor.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFilterAuthor.Location = new System.Drawing.Point(19, 23);
             this.txbFilterAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.txbFilterAuthor.Name = "txbFilterAuthor";
-            this.txbFilterAuthor.Size = new System.Drawing.Size(299, 34);
+            this.txbFilterAuthor.Size = new System.Drawing.Size(299, 24);
             this.txbFilterAuthor.TabIndex = 3;
             // 
             // btnFilterPrice
             // 
+            this.btnFilterPrice.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterPrice.Location = new System.Drawing.Point(19, 314);
             this.btnFilterPrice.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterPrice.Name = "btnFilterPrice";
@@ -325,6 +337,7 @@
             // 
             // btnFilterISBN
             // 
+            this.btnFilterISBN.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterISBN.Location = new System.Drawing.Point(19, 175);
             this.btnFilterISBN.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterISBN.Name = "btnFilterISBN";
@@ -336,6 +349,7 @@
             // 
             // btnFilterAuthor
             // 
+            this.btnFilterAuthor.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterAuthor.Location = new System.Drawing.Point(19, 61);
             this.btnFilterAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.btnFilterAuthor.Name = "btnFilterAuthor";
@@ -358,16 +372,17 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsername.Location = new System.Drawing.Point(24, 32);
             this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(105, 24);
+            this.lbUsername.Size = new System.Drawing.Size(74, 17);
             this.lbUsername.TabIndex = 0;
             this.lbUsername.Text = "User Name";
             // 
             // btnSignOut
             // 
+            this.btnSignOut.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignOut.Location = new System.Drawing.Point(231, 16);
             this.btnSignOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignOut.Name = "btnSignOut";
@@ -382,6 +397,7 @@
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.btnSignOut);
             this.groupBox3.Controls.Add(this.lbUsername);
+            this.groupBox3.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(1050, 37);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -406,7 +422,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoggedinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Portal";
+            this.Text = "B - Market Portal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoggedinForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

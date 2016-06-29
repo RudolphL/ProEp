@@ -34,6 +34,7 @@
             // 
             // btSend
             // 
+            this.btSend.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSend.Location = new System.Drawing.Point(357, 214);
             this.btSend.Name = "btSend";
             this.btSend.Size = new System.Drawing.Size(151, 50);
@@ -44,6 +45,7 @@
             // 
             // rtbText
             // 
+            this.rtbText.Font = new System.Drawing.Font("Modern No. 20", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbText.Location = new System.Drawing.Point(12, 12);
             this.rtbText.Name = "rtbText";
             this.rtbText.Size = new System.Drawing.Size(496, 196);
@@ -54,6 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProEpBookApp.Properties.Resources.Paper_Proselyte_Graphics;
             this.ClientSize = new System.Drawing.Size(520, 276);
             this.Controls.Add(this.rtbText);
             this.Controls.Add(this.btSend);
